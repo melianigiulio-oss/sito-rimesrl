@@ -1,0 +1,27 @@
+/* — Rime Spirits — stile base — */
+:root{--max:1100px}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#1c1c1c;line-height:1.6}
+a{color:inherit}
+.container{max-width:var(--max);margin:0 auto;padding:0 20px}
+nav{position:sticky;top:0;background:#fff;border-bottom:1px solid #eee;z-index:10}
+nav .container{display:flex;align-items:center;justify-content:space-between;height:64px}
+nav ul{display:flex;gap:18px;list-style:none;margin:0;padding:0}
+nav a{text-decoration:none;opacity:.8}
+nav a:hover{opacity:1}
+.hero{min-height:58vh;display:grid;place-items:center;background:#f6f6f6;text-align:center}
+.hero h1{font-size:40px;margin:0 0 10px}
+.hero p{margin:0;opacity:.9}
+.section{padding:56px 0;border-top:1px solid #f0f0f0}
+.grid{display:grid;gap:18px}
+.grid-3{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.card{background:#fff;border:1px solid #eee;border-radius:10px;overflow:hidden}
+.card img{width:100%;display:block}
+.card .p{padding:16px}
+footer{padding:28px 0;background:#fafafa;border-top:1px solid #eee;text-align:center;color:#666}
+h2{margin:0 0 8px;font-size:28px}
+.lead{font-size:18px;opacity:.85}
+.btn{display:inline-block;padding:10px 16px;border:1px solid #111;border-radius:6px;text-decoration:none}
+.gallery{grid-template-columns:repeat(auto-fit,minmax(160px,1fr))}
+.gallery img{width:100%;height:160px;object-fit:cover;border-radius:8px}
