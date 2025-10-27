@@ -1,88 +1,125 @@
-/* ===== RIME — stile base pulito ===== */
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=Inter:wght@400;500&display=swap');
+/* ===== RIME — stile base elegante ===== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Cormorant+Garamond:wght@400;600&display=swap');
 
 :root {
-  --max: 980px;
-  --ink: #222;
-  --muted: #666;
-  --gold: #b48a50;
-  --bg: #fafafa;
-  --paper: #fff;
-  --line: #eee;
+  --bg: #cbb89d;        /* beige scuro */
+  --text: #ffffff;       /* testo bianco */
+  --accent: #bfa77f;     /* oro tenue */
+  --max-width: 980px;
 }
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html, body { background: var(--bg); color: var(--ink); }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-body {
-  font-family: Inter, system-ui, -apple-system, Arial, sans-serif;
+html, body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Cormorant Garamond', serif;
   line-height: 1.8;
   font-size: 18px;
 }
 
-/* tipografia */
-h1, h2, h3 { font-family: "Cormorant Garamond", serif; letter-spacing:.2px; }
-h1 { font-size: 42px; font-weight:700; }
-h2 { font-size: 30px; margin-bottom: 16px; }
-h3 { font-size: 22px; margin-bottom: 8px; }
-p  { color: var(--ink); }
-.lead { color: var(--muted); font-style: italic; }
-
-/* contenitori */
-.container { max-width: var(--max); margin: 0 auto; padding: 0 22px; }
-.section  { padding: 64px 0; border-top: 1px solid var(--line); background: var(--paper); }
-.section:first-of-type { border-top: 0; }
-
-/* hero */
-.hero {
-  text-align: center; padding: 96px 22px 56px;
-  background: linear-gradient(#fff, #f6f6f6); border-bottom: 1px solid var(--line);
+/* ----- Contenitori principali ----- */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 60px 20px;
 }
-.hero p { margin-top: 10px; }
 
-/* nav con "tasti" */
+section {
+  margin-bottom: 80px;
+}
+
+/* ----- Tipografia ----- */
+h1, h2, h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  color: var(--text);
+}
+
+h1 {
+  font-size: 46px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 32px;
+  margin-top: 60px;
+  margin-bottom: 20px;
+}
+
+p {
+  font-family: 'Inter', sans-serif;
+  color: var(--text);
+  margin-bottom: 16px;
+  text-align: justify;
+}
+
+/* ----- Navigazione ----- */
 nav {
-  position: sticky; top: 0; z-index: 10;
-  background: #fff; border-bottom:1px solid var(--line);
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  padding: 30px 0;
 }
-nav .container { display:flex; gap:12px; flex-wrap:wrap; justify-content:center; padding:14px 22px; }
+
 nav a {
-  text-decoration:none; color: var(--ink);
-  border:1px solid var(--ink); padding:8px 12px; border-radius:6px;
-  transition: .2s ease;
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 500;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 6px 18px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
 }
-nav a:hover { background: var(--ink); color:#fff; }
 
-/* griglie e card */
-.grid { display:grid; gap:22px; }
-.grid-2 { grid-template-columns: repeat(auto-fit,minmax(300px,1fr)); }
-.card { background:#fff; border:1px solid var(--line); border-radius:10px; overflow:hidden; }
-.card .body { padding:16px 18px; }
-
-/* segnaposto immagini */
-.ph {
-  width:100%; aspect-ratio: 4/3;
-  background: repeating-linear-gradient(45deg,#f2f2f2,#f2f2f2 10px,#e9e9e9 10px,#e9e9e9 20px);
-  display:grid; place-items:center; color:#777; font-size:14px;
+nav a:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
 }
-.ph::after { content: attr(data-label); }
 
-/* galleria */
-.gallery { grid-template-columns: repeat(auto-fit,minmax(160px,1fr)); }
-.gallery .ph { aspect-ratio: 1/1; }
+/* ----- Galleria ----- */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 14px;
+  margin-top: 20px;
+}
 
-/* footer */
-footer { text-align:center; padding:40px 22px; color:#bbb; background:#111; margin-top:40px; }
-footer a { color: var(--gold); text-decoration:none; }
-footer a:hover { text-decoration:underline; }
-/* ===== Verifica età — versione elegante RIME (corretta) ===== */
+.gallery .ph {
+  width: 100%;
+  aspect-ratio: 1/1;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px dashed rgba(255, 255, 255, 0.3);
+  display: grid;
+  place-items: center;
+  color: rgba(255, 255, 255, 0.6);
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  border-radius: 10px;
+}
+
+/* ----- Footer ----- */
+footer {
+  text-align: center;
+  padding: 40px 20px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* ===== Verifica età — versione elegante RIME ===== */
 .age-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: #d2c1a2; /* beige scuro elegante */
+  background: #c1af8f; /* beige più scuro */
   display: none;
   align-items: center;
   justify-content: center;
@@ -99,22 +136,22 @@ footer a:hover { text-decoration:underline; }
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 250px;
-  height: 250px;
-  background: url('assets/logo-rime.png') center/contain no-repeat;
-  opacity: 0.08; /* logo trasparente */
+  width: 260px;
+  height: 260px;
+  background: url('assets/css/logo.jpeg') center/contain no-repeat;
+  opacity: 0.1; /* logo trasparente */
   transform: translate(-50%, -50%);
   filter: brightness(0) invert(1);
 }
 
 .age-box {
-  background: rgba(255,255,255,0.1);
-  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.25);
   border-radius: 12px;
   max-width: 420px;
   padding: 50px 35px;
   z-index: 2;
-  box-shadow: 0 2px 18px rgba(0,0,0,0.2);
+  box-shadow: 0 2px 18px rgba(0,0,0,0.3);
   animation: fadeIn 1.2s ease;
 }
 
@@ -153,28 +190,3 @@ footer a:hover { text-decoration:underline; }
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
-
-  <div class="age-box">
-    <h2>Hai l’età legale per bere bevande alcoliche?</h2>
-    <div class="buttons">
-      <button id="yes">Sì</button>
-      <button id="no">No</button>
-    </div>
-  </div>
-</div>
-
-<script>
-  // Mostra la finestra se l'utente non ha ancora confermato
-  if (!localStorage.getItem('ageVerified')) {
-    document.getElementById('age-gate').style.display = 'flex';
-  }
-
-  document.getElementById('yes').addEventListener('click', function() {
-    localStorage.setItem('ageVerified', 'true');
-    document.getElementById('age-gate').style.display = 'none';
-  });
-
-  document.getElementById('no').addEventListener('click', function() {
-    window.location.href = "https://www.google.com";
-  });
-</script>
