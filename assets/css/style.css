@@ -138,8 +138,8 @@ footer {
   left: 50%;
   width: 260px;
   height: 260px;
-  background: url('assets/css/logo.png') center/contain no-repeat;
-  opacity: 0.1; /* logo trasparente */
+  background: url('assets/css/logo.jpeg') center/contain no-repeat;
+  opacity: 0.25; /* logo trasparente */
   transform: translate(-50%, -50%);
   filter: brightness(0) invert(1);
 }
