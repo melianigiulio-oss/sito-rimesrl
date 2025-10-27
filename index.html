@@ -112,20 +112,28 @@
 </div>
 
 <script>
-  // Controlla se l'utente ha già confermato
-  if (!localStorage.getItem('ageVerified')) {
+  // Chiave nuova così non usa il vecchio salvataggio
+  const AGE_KEY = 'ageVerifiedV2';
+
+  // Se visiti il sito con ?reset=1, cancella la conferma
+  const params = new URLSearchParams(location.search);
+  if (params.has('reset')) localStorage.removeItem(AGE_KEY);
+
+  // Mostra il gate se non hai già confermato
+  if (!localStorage.getItem(AGE_KEY)) {
     document.getElementById('age-gate').style.display = 'flex';
   }
 
-  document.getElementById('yes').addEventListener('click', function() {
-    localStorage.setItem('ageVerified', 'true');
+  document.getElementById('yes').addEventListener('click', () => {
+    localStorage.setItem(AGE_KEY, 'true');
     document.getElementById('age-gate').style.display = 'none';
   });
 
-  document.getElementById('no').addEventListener('click', function() {
-    window.location.href = "https://www.google.com";
+  document.getElementById('no').addEventListener('click', () => {
+    window.location.href = 'https://www.google.com';
   });
 </script>
+
 
 </body>
 </html>
