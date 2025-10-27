@@ -199,9 +199,9 @@ footer {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 260px;
+  width: 480px; 
   transform: translate(-50%, -50%);
-  opacity: 0.22; /* visibilità elegante */
+  opacity: 0.10; /* visibilità elegante */
   filter: invert(1) brightness(1.2);
   pointer-events: none; /* non interferisce coi click */
   z-index: 1; /* sotto alla box */
