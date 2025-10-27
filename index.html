@@ -1,28 +1,99 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="it">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Rime SRL</title>
-    <style>
-      body { font-family: system-ui, Arial, sans-serif; margin: 0; }
-      header { padding: 48px 24px; text-align: center; }
-      h1 { margin: 0 0 12px; }
-      p { margin: 0; color: #444; }
-      main { max-width: 900px; margin: 24px auto; padding: 0 24px; line-height: 1.6; }
-      footer { text-align:center; padding: 32px; font-size: 14px; color:#666; }
-    </style>
-  </head>
-  <body>
-    <header>
-      <h1>Rime SRL</h1>
-      <p>Sito in allestimento</p>
-    </header>
-    <main>
-      <p>Benvenuto nel sito ufficiale di Rime SRL.</p>
-      <p>Contatti: <a href="mailto:info@rimesrl.com">info@rimesrl.com</a></p>
-    </main>
-    <footer>© <span id="y"></span> Rime SRL</footer>
-    <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RIME – Spiriti di creazione</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <header class="hero">
+    <h1>RIME – Spiriti di creazione</h1>
+    <p>L’arte italiana del distillato</p>
+  </header>
+
+  <nav>
+    <a href="#storia">La nostra storia</a>
+    <a href="#visione">Visione</a>
+    <a href="#identita">Identità</a>
+    <a href="#prodotti">Prodotti</a>
+    <a href="#essenza">Essenza</a>
+  </nav>
+
+  <section id="storia" class="container">
+    <h2>La nostra storia</h2>
+    <p>
+      RIME nasce dall’incontro di due amici mossi dalla stessa fiamma creativa e da una profonda passione per la liquoristica.  
+      Un sogno condiviso: creare distillati unici, capaci di raccontare il territorio e di trasformarlo in esperienza sensoriale.  
+      Da questa unione nasce un laboratorio di idee, ricerca e bellezza, dove ogni prodotto prende forma come un’opera d’arte, pensata e curata in ogni dettaglio — dal gusto all’immagine, dall’origine alla bottiglia.  
+      RIME è il risultato di un dialogo tra tradizione e intuizione, tra la forza delle radici e il desiderio di dare vita a qualcosa di nuovo, autentico e senza tempo.
+    </p>
+  </section>
+
+  <section id="visione" class="container">
+    <h2>Visione</h2>
+    <p>
+      Crediamo che la liquoristica sia un linguaggio, un modo per raccontare la terra, la passione e la bellezza attraverso il gusto.  
+      RIME nasce per creare spiriti che uniscano ricerca e identità, territorio e innovazione, restituendo valore e prestigio alle eccellenze italiane.  
+      Ogni creazione parte da zero, ma con un profondo rispetto per ciò che esiste: studiamo, esploriamo e recuperiamo prodotti di altissima qualità, restituendo loro una nuova immagine — più raffinata, più contemporanea, più vera.  
+      RIME è un atto d’amore verso ciò che è autentico, una ricerca costante di equilibrio tra eleganza e intensità, tra forma e sostanza.
+    </p>
+  </section>
+
+  <section id="identita" class="container">
+    <h2>Identità</h2>
+    <p>
+      Siamo artigiani del gusto e dell’immaginazione.  
+      Ogni dettaglio, ogni scelta estetica, ogni sfumatura aromatica è frutto di un lavoro che intreccia raffinatezza, territorio e passione.  
+      I nostri distillati nascono in piccole quantità, con un’estrema attenzione alla materia prima e alla presentazione.  
+      Vogliamo che ogni bottiglia sia un’esperienza di stile: sofisticata, essenziale, elegante.  
+      Perché per noi la bellezza non è solo ciò che si vede, ma ciò che si sente, si respira e si ricorda.
+    </p>
+  </section>
+
+  <section id="prodotti" class="container">
+    <h2>I nostri prodotti</h2>
+
+    <div class="cards">
+      <div class="card">
+        <img src="assets/img/butito.jpg" alt="Amaro Butito">
+        <h3>Amaro Butito</h3>
+        <p>
+          Un amaro dal carattere autentico, nato dal legame profondo con il territorio.  
+          Creato interamente da noi, con ingredienti selezionati e lavorazione 100% artigianale.  
+          Affinato in barrique di rovere con un doppio passaggio, Butito racchiude la complessità del legno e l’intensità della terra da cui proviene.  
+          Un viaggio aromatico che rivela, ad ogni sorso, una nuova sfumatura.
+        </p>
+      </div>
+
+      <div class="card">
+        <img src="assets/img/varuna.jpg" alt="Grappa Varùna">
+        <h3>Grappa VARÙNA – Grappa di Brunello Riserva</h3>
+        <p>
+          Dalla nobile tradizione del Brunello nasce una grappa di rara eleganza.  
+          VARÙNA riposa 18 mesi in barrique, dove sviluppa un bouquet profondo, caldo e avvolgente.  
+          È la sintesi di potenza e grazia, una grappa che non si limita a essere degustata, ma vissuta.  
+          Ogni bottiglia porta con sé la luce del legno, il respiro del tempo e la firma dell’eccellenza italiana.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="essenza" class="container">
+    <h2>Essenza</h2>
+    <p>
+      RIME è un invito a riscoprire il valore del tempo, la cura del dettaglio e la forza del gusto autentico.  
+      Ogni creazione nasce da una visione: trasformare la materia in emozione, e l’emozione in arte liquida.
+    </p>
+  </section>
+
+  <footer id="contatti">
+    <p>📍 RIME S.R.L. — Firenze, Italia</p>
+    <p>📧 <a href="mailto:info@rimesrl.com">info@rimesrl.com</a></p>
+    <p>© 2025 Rime Spirits — Tutti i diritti riservati</p>
+  </footer>
+
+</body>
 </html>
