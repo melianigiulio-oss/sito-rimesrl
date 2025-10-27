@@ -100,6 +100,32 @@
     <p>📧 <a href="mailto:info@rimesrl.com">info@rimesrl.com</a></p>
     <p>© 2025 RIME — Tutti i diritti riservati</p>
   </footer>
+<!-- Finestra di verifica età -->
+<div id="age-gate" class="age-overlay">
+  <div class="age-box">
+    <h2>Hai l’età legale per bere bevande alcoliche?</h2>
+    <div class="buttons">
+      <button id="yes">Sì</button>
+      <button id="no">No</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Controlla se l'utente ha già confermato
+  if (!localStorage.getItem('ageVerified')) {
+    document.getElementById('age-gate').style.display = 'flex';
+  }
+
+  document.getElementById('yes').addEventListener('click', function() {
+    localStorage.setItem('ageVerified', 'true');
+    document.getElementById('age-gate').style.display = 'none';
+  });
+
+  document.getElementById('no').addEventListener('click', function() {
+    window.location.href = "https://www.google.com";
+  });
+</script>
 
 </body>
 </html>
