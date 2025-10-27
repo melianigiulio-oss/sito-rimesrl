@@ -112,14 +112,18 @@ footer {
   border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-/* ===== Verifica età — versione elegante RIME ===== */
+
+/* ------------------------------
+   FINESTRA DI VERIFICA ETÀ
+------------------------------ */
+
 .age-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: #c1af8f; /* beige più scuro */
+  background: #c1af8f; /* beige scuro elegante */
   display: none;
   align-items: center;
   justify-content: center;
@@ -131,19 +135,21 @@ footer {
   overflow: hidden;
 }
 
-.age-overlay::before {
-  content: "";
+/* Logo grande e trasparente sullo sfondo */
+.age-logo {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 260px;
-  height: 260px;
-  background: url('logo.jpeg') center/contain no-repeat;
-  opacity: 0.25; /* logo trasparente */
+  width: 70vw;           /* grandezza proporzionale alla finestra */
+  max-width: 800px;      /* limite massimo */
   transform: translate(-50%, -50%);
-  filter: brightness(0) invert(1);
+  opacity: 0.12;         /* più trasparente */
+  filter: invert(1) brightness(1.1);
+  pointer-events: none;  /* non interferisce con i click */
+  z-index: 1;
 }
 
+/* Box con domanda */
 .age-box {
   background: rgba(255,255,255,0.08);
   border: 1px solid rgba(255,255,255,0.25);
@@ -155,13 +161,15 @@ footer {
   animation: fadeIn 1.2s ease;
 }
 
+/* Testo */
 .age-box h2 {
   font-size: 26px;
   line-height: 1.4;
   color: #fff;
-  margin-bottom: 36px;
+  margin-bottom: 30px;
 }
 
+/* Pulsanti */
 .age-box .buttons {
   display: flex;
   justify-content: center;
@@ -175,7 +183,7 @@ footer {
   cursor: pointer;
   font-size: 16px;
   font-family: Inter, sans-serif;
-  transition: all .25s ease;
+  transition: all 0.25s ease;
   background: transparent;
   color: #fff;
 }
@@ -186,24 +194,9 @@ footer {
   transform: scale(1.05);
 }
 
+/* Animazione di entrata */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
-}
-
-.age-box {
-  z-index: 2; /* la box resta sopra al logo */
-}
-/* Logo visibile nell'age-gate */
-.age-logo {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 480px; 
-  transform: translate(-50%, -50%);
-  opacity: 0.10; /* visibilità elegante */
-  filter: invert(1) brightness(1.2);
-  pointer-events: none; /* non interferisce coi click */
-  z-index: 1; /* sotto alla box */
 }
 
