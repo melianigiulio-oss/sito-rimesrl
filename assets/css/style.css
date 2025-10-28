@@ -283,3 +283,87 @@ footer {
 html {
   scroll-behavior: smooth;
 }
+/* =======================
+   HEADER con logo + nav che appare al passaggio
+======================= */
+.nav-wrap{
+  position: fixed;
+  inset: 0 0 auto 0;           /* top:0; left:0; right:0 */
+  z-index: 9999;
+  pointer-events: none;         /* evita che blocchi i click sotto */
+}
+
+/* zona “hot” invisibile in alto: passando col mouse sopra attiva la barra */
+.nav-reveal{
+  height: 26px;                 /* puoi aumentare a 40px se vuoi più facile da attivare */
+}
+
+/* barra vera e propria */
+.site-header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 12px 28px;
+  opacity: 0;
+  transform: translateY(-10px);
+  background: rgba(0,0,0,0);    /* trasparente di base */
+  backdrop-filter: none;
+  transition: opacity .25s ease, transform .25s ease, background .25s ease, backdrop-filter .25s ease;
+  pointer-events: auto;         /* i link restano cliccabili quando visibile */
+}
+
+/* quando il mouse è nella parte alta, mostra la barra e aggiungi un velo elegante */
+.nav-wrap:hover .site-header,
+.nav-wrap:focus-within .site-header{
+  opacity: 1;
+  transform: translateY(0);
+  background: rgba(0,0,0,0.28); /* leggero vetro scuro */
+  backdrop-filter: blur(6px);
+}
+
+/* logo */
+.site-header .brand img{
+  display: block;
+  height: 38px;                 /* regola l’altezza del logo */
+  width: auto;
+  filter: drop-shadow(0 1px 4px rgba(0,0,0,.35)); /* leggera profondità */
+}
+
+/* nav links */
+.site-nav{
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+.site-nav a{
+  color: #fff;
+  text-decoration: none;
+  font: 500 16px Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  letter-spacing: .3px;
+  padding: 6px 8px;
+  border-radius: 6px;
+  transition: color .2s ease, background .2s ease, transform .2s ease;
+}
+.site-nav a:hover{
+  color: #f6e6be;               /* oro chiaro */
+  background: rgba(255,255,255,.06);
+  transform: translateY(-1px);
+}
+
+/* mobile */
+@media (max-width: 720px){
+  .site-header{
+    padding: 10px 16px;
+  }
+  .site-header .brand img{
+    height: 32px;
+  }
+  .site-nav{
+    gap: 12px;
+  }
+  .site-nav a{
+    font-size: 15px;
+    padding: 6px 6px;
+  }
+}
