@@ -214,17 +214,18 @@ footer {
   color: #fff;
 }
 
-.hero__shade{                         /* velo per leggere meglio il testo */
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(0,0,0,0.35) 0%,
-    rgba(0,0,0,0.25) 40%,
-    rgba(0,0,0,0.35) 100%
-  );
-  z-index: 1;
+.hero_shade {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.15) 0%,   /* meno scuro sopra */
+        rgba(0,0,0,0.10) 40%,  /* quasi trasparente */
+        rgba(0,0,0,0.15) 100%  /* leggero contrasto sotto */
+    );
+    z-index: 1;
 }
+
 
 .hero__content{
   position: relative;
