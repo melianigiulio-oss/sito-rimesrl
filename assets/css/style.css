@@ -307,7 +307,7 @@ html {
 }
 
 .hero-logo img {
-  height: 70px;                  /* regola dimensione logo */
+  height: 208px;                  /* regola dimensione logo */
   width: auto;
   filter: brightness(1000%) drop-shadow(0 0 6px rgba(255,255,255,0.3));
   transition: transform 0.3s ease;
