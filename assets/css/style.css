@@ -325,7 +325,7 @@ html {
 /* logo */
 .site-header .brand img{
   display: block;
-  height: 88px;                 /* regola l’altezza del logo */
+  height: 208px;                 /* regola l’altezza del logo */
   width: auto;
   filter: drop-shadow(0 1px 4px rgba(0,0,0,.35)); /* leggera profondità */
 }
