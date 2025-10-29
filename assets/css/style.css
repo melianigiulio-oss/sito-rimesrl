@@ -364,7 +364,7 @@ body.is-scrolled .hero-nav{
 
 /* Logo a sinistra */
 body.is-scrolled .hero-logo{
-  left: 20px;                  /* quanto ti piace dal bordo */
+  left: 80px;                  /* quanto ti piace dal bordo */
   transform: translateX(0);
 }
 body.is-scrolled .hero-logo img{
