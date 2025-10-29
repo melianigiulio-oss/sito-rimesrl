@@ -428,7 +428,7 @@ body.is-scrolled .hero-nav{
 body.is-scrolled .hero-header{ align-items: flex-start; }
 body.is-scrolled .hero-nav{
   justify-content: flex-start;
-  margin-left: 148px;             /* 110px (logo) + ~38px di respiro */
+  margin-left: 300px;             /* 110px (logo) + ~38px di respiro */
 }
 
 /* --------- MOBILE --------- */
