@@ -348,14 +348,6 @@ html {
   transition: color 0.25s ease, transform 0.25s ease;
 }
 
-.hero-nav {
-  margin-left: 400px; /* sposta la barra un po' più a destra */
-}
-
-.hero-logo {
-  margin-left: 20px; /* sposta leggermente il logo */
-}
-
 
 .hero-nav a:hover {
   color: #f6e6be; /* oro chiaro */
