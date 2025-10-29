@@ -317,8 +317,13 @@ html {
 
 
 /* Stato scrolled: logo a sinistra e più piccolo */
-body.scrolled .hero-logo{ left: 24px; transform: translateX(0); }
-body.scrolled .hero-logo img{ height: 110px; }
+body.is-scrolled .hero-logo{ left: 24px; transform: translateX(0); }
+body.is-scrolled .hero-logo img{ height: 110px; }
+/* Sposta il menu a destra del logo quando si scrolla */
+body.is-scrolled .hero-nav{
+  justify-content: flex-start;
+  margin-left: 160px;   /* regola 148–180px finché è perfetto */
+}
 
 /* Menu a comparsa */
 .hero-nav{
