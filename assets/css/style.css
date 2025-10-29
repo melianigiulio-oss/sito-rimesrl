@@ -353,6 +353,17 @@ html {
   color: #f6e6be; /* oro chiaro */
   transform: translateY(-2px);
 }
+/* ============================
+   POSIZIONAMENTO PRECISO DELLA BARRA
+============================ */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 180px; /* Sposta la barra verso destra: aumenta o riduci se serve (150–200px) */
+  transition: left 0.3s ease;
+  z-index: 9999;
+}
+
 
 /* MOBILE */
 @media (max-width: 720px) {
@@ -365,7 +376,7 @@ html {
   .hero-nav a {
     font-size: 18px;
     .hero-nav {
-  margin-left: 800px; /* sposta la barra più a destra */
+  margin-left: 100px; /* sposta la barra più a destra */
   transition: margin-left 0.3s ease;
 }
   }
