@@ -445,7 +445,7 @@ body.is-scrolled .hero-logo img {
 
 /* Mantieni il menu “a comparsa” anche in sticky */
 body.is-scrolled .hero-nav {
-  margin-left: 140px;                    /* un po’ di spazio, sotto/accanto al logo */
+  margin-left: 90px;                    /* un po’ di spazio, sotto/accanto al logo */
 }
 
 /* Mostra il menu quando:
