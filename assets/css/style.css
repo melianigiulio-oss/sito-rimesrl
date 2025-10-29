@@ -329,7 +329,11 @@ html {
   flex-wrap: wrap;
   gap: 24px;
   margin-top: 10px;
+
+  /* 🔸 spostamento verso destra per allineare al logo */
+  margin-left: 180px; /* regola questo valore (150–220px) finché è perfetto */
 }
+
 
 /* Quando passi sopra il logo o la barra */
 .hero-header:hover .hero-nav {
