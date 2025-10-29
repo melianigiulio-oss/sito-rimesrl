@@ -298,7 +298,7 @@ html {
   justify-content: flex-start;
   padding-top: 10px;             /* piccolo respiro sopra */
   z-index: 9999;
-  pointer-events: none;          /* evita blocco clic sotto */
+  pointer-events: auto;          /* evita blocco clic sotto */
 }
 
 .hero-logo {
@@ -400,3 +400,22 @@ html {
   margin-left: 72px;                    /* un po’ di spazio, sotto/accanto al logo */
 }
 
+/* Mostra il menu quando:
+   - passi sull'header,
+   - passi sul logo,
+   - passi sul menu stesso */
+.hero-header:hover .hero-nav,
+.hero-logo:hover ~ .hero-nav,
+.hero-nav:hover {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.hero-header:hover .hero-nav,
+.hero-logo:hover ~ .hero-nav,
+.hero-nav:hover {
+  background: rgba(0,0,0,0.25);
+  backdrop-filter: blur(6px);
+  border-radius: 10px;
+  padding: 8px 14px;
+}
