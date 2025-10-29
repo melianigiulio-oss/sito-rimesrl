@@ -365,3 +365,38 @@ html {
     font-size: 18px;
   }
 }
+
+/* Logo sempre visibile; a sinistra quando si scrolla */
+.hero-logo {
+  position: relative;
+  z-index: 10000;
+  pointer-events: auto;                 /* deve poter ricevere il click */
+  transition: top .35s ease, left .35s ease, transform .35s ease;
+}
+.hero-logo img {
+  height: 70px;                         /* dimensione iniziale centro */
+  width: auto;
+  transition: height .35s ease, filter .35s ease, transform .35s ease;
+}
+
+/* Quando la pagina è scrollata */
+.is-scrolled .hero-header {
+  align-items: flex-start;              /* allinea contenuti a sinistra */
+  padding-top: 8px;
+}
+.is-scrolled .hero-logo {
+  position: fixed;                      /* stacca dal flusso: resta visibile */
+  top: 12px;                            /* distanza dal bordo alto */
+  left: 16px;                           /* distanza dal bordo sinistro */
+  transform: translateY(0);             /* niente offset verticale */
+}
+.is-scrolled .hero-logo img {
+  height: 48px;                         /* più piccolo in versione sticky */
+  filter: brightness(1000%) drop-shadow(0 0 4px rgba(255,255,255,.25));
+}
+
+/* Mantieni il menu “a comparsa” anche in sticky */
+.is-scrolled .hero-nav {
+  margin-left: 72px;                    /* un po’ di spazio, sotto/accanto al logo */
+}
+
