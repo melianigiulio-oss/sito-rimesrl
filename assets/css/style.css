@@ -364,7 +364,7 @@ body.is-scrolled .hero-nav{
 
 /* Logo a sinistra */
 body.is-scrolled .hero-logo{
-  left: 180px;                  /* quanto ti piace dal bordo */
+  left: 20px;                  /* quanto ti piace dal bordo */
   transform: translateX(0);
 }
 body.is-scrolled .hero-logo img{
@@ -391,7 +391,7 @@ body.is-scrolled .hero-header{
 }
 body.is-scrolled .hero-nav{
   justify-content: flex-start; /* a sinistra in sticky */
-  margin-left: 160px;          /* distanza dal logo: regola 140–200px finché è perfetto */
+  margin-left: 300px;          /* distanza dal logo: regola 140–200px finché è perfetto */
 }
 
 /* Mostra il menu quando passi su header/logo/menu */
