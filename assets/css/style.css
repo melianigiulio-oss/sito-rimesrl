@@ -365,7 +365,7 @@ html {
   .hero-nav a {
     font-size: 18px;
     .hero-nav {
-  margin-left: 100px; /* sposta la barra più a destra */
+  margin-left: 300px; /* sposta la barra più a destra */
   transition: margin-left 0.3s ease;
 }
   }
