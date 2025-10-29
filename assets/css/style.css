@@ -317,6 +317,33 @@ html {
 .hero-logo:hover img {
   transform: scale(1.04);
 }
+/* Logo sempre visibile, si sposta a sinistra quando si scrolla */
+.hero-logo {
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10000;
+  transition: all 0.35s ease;
+}
+
+/* Quando scrolli verso il basso il logo si riduce e si sposta a sinistra */
+body.scrolled .hero-logo {
+  left: 60px; /* distanza dal bordo sinistro */
+  transform: translateX(0);
+}
+
+.hero-logo img {
+  height: 200px;
+  width: auto;
+  filter: brightness(100%) drop-shadow(0 0 6px rgba(255,255,255,0.3));
+  transition: all 0.35s ease;
+}
+
+/* Logo più piccolo quando scrolli */
+body.scrolled .hero-logo img {
+  height: 100px;
+}
 
 /* MENU */
 .hero-nav {
