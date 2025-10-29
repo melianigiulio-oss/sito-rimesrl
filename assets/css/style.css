@@ -374,7 +374,7 @@ html {
   transition: top .35s ease, left .35s ease, transform .35s ease;
 }
 .hero-logo img {
-  height: 70px;                         /* dimensione iniziale centro */
+  height: 208px;                         /* dimensione iniziale centro */
   width: auto;
   transition: height .35s ease, filter .35s ease, transform .35s ease;
 }
@@ -391,7 +391,7 @@ html {
   transform: translateY(0);             /* niente offset verticale */
 }
 .is-scrolled .hero-logo img {
-  height: 48px;                         /* più piccolo in versione sticky */
+  height: 108px;                         /* più piccolo in versione sticky */
   filter: brightness(1000%) drop-shadow(0 0 4px rgba(255,255,255,.25));
 }
 
