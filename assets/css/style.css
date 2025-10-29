@@ -287,111 +287,87 @@ html {
    HEADER CENTRALE E MENU
 ======================= */
 
-.hero-header {
+.hero-header{
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  padding-top: 10px;             /* piccolo respiro sopra */
+  top: 0; left: 0; width: 100%;
+  display: flex; flex-direction: column; align-items: center;
+  gap: 8px;
+  padding-top: 10px;
   z-index: 9999;
-  pointer-events: auto;          /* evita blocco clic sotto */
+  pointer-events: none;           /* l'header non blocca i click sotto */
 }
 
-.hero-logo {
-  pointer-events: auto;
-  transition: transform 0.3s ease;
-}
-
-.hero-logo img {
-  height: 208px;                  /* regola dimensione logo */
-  width: auto;
-  filter: brightness(1000%) drop-shadow(0 0 6px rgba(255,255,255,0.3));
-  transition: transform 0.3s ease;
-}
-
-/* Effetto leggero di ingrandimento al passaggio */
-.hero-logo:hover img {
-  transform: scale(1.04);
-}
-/* Logo sempre visibile, si sposta a sinistra quando si scrolla */
-.hero-logo {
+/* Logo centrato in alto; si sposta a sinistra quando si scrolla */
+.hero-logo{
   position: fixed;
-  top: 10px;
-  left: 50%;
+  top: 12px; left: 50%;
   transform: translateX(-50%);
+  pointer-events: auto;           /* il logo resta cliccabile */
+  transition: all .35s ease;
   z-index: 10000;
-  transition: all 0.35s ease;
+}
+.hero-logo img{
+  height: 200px; width: auto;
+  filter: brightness(1000%) drop-shadow(0 0 6px rgba(255,255,255,.30));
+  transition: all .35s ease;
 }
 
-/* Quando scrolli verso il basso il logo si riduce e si sposta a sinistra */
-body.scrolled .hero-logo {
-  left: 60px; /* distanza dal bordo sinistro */
-  transform: translateX(0);
-}
+/* Stato scrolled: logo a sinistra e più piccolo */
+body.scrolled .hero-logo{ left: 24px; transform: translateX(0); }
+body.scrolled .hero-logo img{ height: 110px; }
 
-.hero-logo img {
-  height: 200px;
-  width: auto;
-  filter: brightness(100%) drop-shadow(0 0 6px rgba(255,255,255,0.3));
-  transition: all 0.35s ease;
-}
-
-/* Logo più piccolo quando scrolli */
-body.scrolled .hero-logo img {
-  height: 100px;
-}
-
-/* MENU */
-.hero-nav {
+/* Menu a comparsa */
+.hero-nav{
   opacity: 0;
-  transform: translateY(-10px);
+  transform: translateY(-8px);
   pointer-events: none;
-  transition: opacity 0.4s ease, transform 0.4s ease;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 24px;
-  margin-top: 10px;
+  transition: opacity .35s ease, transform .35s ease;
 
+  display: flex; justify-content: center; flex-wrap: wrap;
+  gap: 24px; margin-top: 8px;
+}
 
-
-/* Quando passi sopra il logo o la barra */
-.hero-header:hover .hero-nav {
+/* Mostra il menu quando passi su header/logo/menu */
+.hero-header:hover .hero-nav,
+.hero-logo:hover ~ .hero-nav,
+.hero-nav:hover{
   opacity: 1;
   transform: translateY(0);
   pointer-events: auto;
 }
 
-/* LINK DEL MENU */
-.hero-nav a {
-  color: #fff;
-  text-decoration: none;
+/* Link del menu */
+.hero-nav a{
+  color: #fff; text-decoration: none;
   font-family: "Cormorant Garamond", serif;
-  font-size: 20px;
-  letter-spacing: 0.5px;
-  transition: color 0.25s ease, transform 0.25s ease;
+  font-size: 20px; letter-spacing: .5px;
+  padding: 8px 16px;
+  border: 1px solid rgba(255,255,255,.25);
+  border-radius: 18px;
+  backdrop-filter: blur(6px);
+  background: rgba(0,0,0,.22);
+  transition: color .25s ease, transform .25s ease, background .25s ease;
 }
-
-
-.hero-nav a:hover {
-  color: #f6e6be; /* oro chiaro */
+.hero-nav a:hover{
+  color: #f6e6be;                 /* oro chiaro */
   transform: translateY(-2px);
-}
-/* ============================
-   POSIZIONAMENTO PRECISO DELLA BARRA
-============================ */
-.site-header {
-  position: fixed;
-  top: 0;
-  left: 400px; /* Sposta la barra verso destra: aumenta o riduci se serve (150–200px) */
-  transition: left 0.3s ease;
-  z-index: 9999;
+  background: rgba(0,0,0,.32);
 }
 
+/* Allineamento della barra quando si scrolla (evita sovrapposizione al logo) */
+body.scrolled .hero-header{ align-items: flex-start; }
+body.scrolled .hero-nav{
+  justify-content: flex-start;
+  margin-left: 148px;             /* 110px (logo) + ~38px di respiro */
+}
+
+/* --------- MOBILE --------- */
+@media (max-width: 720px){
+  .hero-logo img{ height: 64px; }
+  body.scrolled .hero-nav{ margin-left: 76px; } /* logo mobile + spazio */
+  .hero-nav{ gap: 12px; }
+  .hero-nav a{ font-size: 18px; padding: 6px 12px; }
+}
 
 /* MOBILE */
 @media (max-width: 720px) {
