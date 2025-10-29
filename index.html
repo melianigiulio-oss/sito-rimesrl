@@ -10,9 +10,9 @@
 <body>
 <!-- HEADER CENTRALE CON LOGO E MENU -->
 <header class="hero-header">
-  <div class="hero-logo">
-    <img src="assets/css/logo-white.png" alt="RIME" />
-  </div>
+  <a class="hero-logo" href="#home" aria-label="Vai alla home">
+  <img src="assets/css/logo-white.png" alt="RIME" />
+</a>
 
   <nav class="hero-nav">
     <a href="#storia">La nostra storia</a>
@@ -156,6 +156,20 @@
   });
 </script>
 
+<script>
+  (function () {
+    const THRESHOLD = 120; // pixel di scroll prima di spostare il logo
+    function onScroll() {
+      if (window.scrollY > THRESHOLD) {
+        document.body.classList.add('is-scrolled');
+      } else {
+        document.body.classList.remove('is-scrolled');
+      }
+    }
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+  })();
+</script>
 
 </body>
 </html>
