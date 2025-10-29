@@ -359,7 +359,7 @@ html {
 .site-header {
   position: fixed;
   top: 0;
-  left: 180px; /* Sposta la barra verso destra: aumenta o riduci se serve (150–200px) */
+  left: 400px; /* Sposta la barra verso destra: aumenta o riduci se serve (150–200px) */
   transition: left 0.3s ease;
   z-index: 9999;
 }
