@@ -546,10 +546,10 @@ body.is-scrolled .hero-nav {
 }
 
 /* Immagini di sfondo per ciascun riquadro */
-.card--storia   { background-image: url('assets/css/storia.jpg'); }
-.card--visione  { background-image: url('assets/css/visione.jpg'); }
-.card--identita { background-image: url('assets/css/identita.jpg'); }
-.card--prodotti { background-image: url('assets/css/prodotti.jpg'); }
+.card--storia   { background-image: url('../css/storia.jpg'); }
+.card--visione  { background-image: url('../css/visione.jpg'); }
+.card--identita { background-image: url('../css/identita.jpg'); }
+.card--prodotti { background-image: url('../css/prodotti.jpg'); }
 
 /* Mobile */
 @media (max-width: 880px){
