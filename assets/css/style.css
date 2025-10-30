@@ -294,7 +294,7 @@ html {
   gap: 8px;
   padding-top: 10px;
   z-index: 9999;
-  pointer-events: none;           /* l'header non blocca i click sotto */
+  pointer-events: auto;     /* serve per poter fare :hover sull’header */
 }
 
 /* LOGO in alto, centrato */
@@ -315,26 +315,17 @@ html {
 }
 .hero-logo:hover img{ transform: scale(1.04); }
 
-
-
-/* Stato scrolled: logo a sinistra e più piccolo */
-body.is-scrolled .hero-logo{ left: 24px; transform: translateX(0); }
-body.is-scrolled .hero-logo img{ height: 110px; }
-/* Sposta il menu a destra del logo quando si scrolla */
-body.is-scrolled .hero-nav{
-  justify-content: flex-start;
-  margin-left: 160px;   /* regola 148–180px finché è perfetto */
-}
-
-/* Menu a comparsa */
+/* Menu (invisibile finché non passi col mouse) */
 .hero-nav{
   opacity: 0;
   transform: translateY(-8px);
   pointer-events: none;
   transition: opacity .35s ease, transform .35s ease;
-
-  display: flex; justify-content: center; flex-wrap: wrap;
-  gap: 24px; margin-top: 8px;
+  display: flex;
+  justify-content: center;     /* centrato quando sei in alto */
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-top: 8px;
 }
 
 /* Mostra il menu quando passi su header/logo/menu */
@@ -358,77 +349,35 @@ body.is-scrolled .hero-nav{
   background: rgba(0,0,0,.22);
   transition: color .25s ease, transform .25s ease, background .25s ease;
 }
-/* =========================
-   STATO SCROLLATO – LOGO E MENU STICKY
-========================= */
-
-/* Logo a sinistra */
-body.is-scrolled .hero-logo{
-  left: 20px;                  /* quanto ti piace dal bordo */
-  transform: translateX(0);
-}
-body.is-scrolled .hero-logo img{
-  height: 108px;               /* logo più piccolo in sticky */
-}
-
-/* Un po’ di “respiro” a sinistra nell’header */
-body.is-scrolled .hero-header{
-  align-items: flex-start;
-  padding-left: 8px;
-}
-
-/* Menu: da centro a allineamento a sinistra e spostato a destra del logo */
-.hero-nav{
-  opacity: 0;
-  transform: translateY(-8px);
-  pointer-events: none;
-  transition: opacity .35s ease, transform .35s ease;
-  display: flex;
-  justify-content: center;     /* a centro in alto */
-  flex-wrap: wrap;
-  gap: 24px;
-  margin-top: 8px;
-}
-body.is-scrolled .hero-nav{
-  justify-content: flex-start; /* a sinistra in sticky */
-  margin-left: 300px;          /* distanza dal logo: regola 140–200px finché è perfetto */
-}
-
-/* Mostra il menu quando passi su header/logo/menu */
-.hero-header:hover .hero-nav,
-.hero-logo:hover ~ .hero-nav,
-.hero-nav:hover{
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
-}
-
-/* Link del menu */
-.hero-nav a{
-  color: #fff;
-  text-decoration: none;
-  font-family: "Cormorant Garamond", serif;
-  font-size: 20px;
-  letter-spacing: .5px;
-  padding: 8px 16px;
-  border: 1px solid rgba(255,255,255,.25);
-  border-radius: 18px;
-  backdrop-filter: blur(6px);
-  background: rgba(0,0,0,.22);
-  transition: color .25s ease, transform .25s ease, background .25s ease;
-}
 .hero-nav a:hover{
   color: #f6e6be;
   transform: translateY(-2px);
   background: rgba(0,0,0,.32);
 }
 
+/* =========================
+   STATO SCROLLATO – LOGO E MENU STICKY
+========================= */
 
-/* Allineamento della barra quando si scrolla (evita sovrapposizione al logo) */
-body.is-scrolled .hero-header{ align-items: flex-start; }
+/* Logo a sinistra (distanza dal bordo) */
+body.is-scrolled .hero-logo{
+  left: 20px;                  /* regola a piacere (15–30px) */
+  transform: translateX(0);
+}
+body.is-scrolled .hero-logo img{
+  height: 108px;               /* logo più piccolo in sticky */
+}
+
+/* Allinea contenuti a sinistra e dai un filo di respiro */
+body.is-scrolled .hero-header{
+  align-items: flex-start;
+  padding-left: 8px;
+}
+
+/* Sposta la barra a destra del logo quando si scrolla */
 body.is-scrolled .hero-nav{
   justify-content: flex-start;
-  margin-left: 300px;             /* 110px (logo) + ~38px di respiro */
+  margin-left: 180px;          /* distanza dal logo: aumenta/diminuisci 160–220px */
 }
 
 /* --------- MOBILE --------- */
