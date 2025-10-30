@@ -499,82 +499,93 @@ body.is-scrolled .hero-nav {
   background: rgba(0,0,0,.32);
   transform: translateY(-2px);
 }
-/* ====== CARDS GRANDI 2x2 CON FOTO CENTRATA ====== */
+/* ====== SEZIONE 4 CARDS A SCHERMO INTERO ====== */
 .cards.cards--big{
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 40px;
-  margin: 60px auto;
-  max-width: 1400px; /* limita larghezza per schermi grandi */
+  grid-template-rows: repeat(2, 50vh);     /* ogni riquadro metà schermo */
+  gap: 0;                                 /* nessuno spazio tra i quadrati */
+  width: 100vw;
+  height: 100vh;                          /* tutta l’altezza visibile */
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
 }
 
 .cards .card{
   position: relative;
-  min-height: 480px;                /* <<< più grandi */
-  border-radius: 20px;
+  border: none;
+  border-radius: 0;
   overflow: hidden;
   text-decoration: none;
-  display: block;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  box-shadow: 0 14px 40px rgba(0,0,0,.18);
-  transition: transform .35s ease, box-shadow .35s ease;
+  transition: transform .4s ease, filter .4s ease;
 }
 
-/* Overlay leggero per il testo */
+/* leggero effetto al passaggio */
+.cards .card:hover{
+  transform: scale(1.03);
+  filter: brightness(1.1);
+}
+
+/* overlay per contrasto testo */
 .cards .card::before{
   content:"";
-  position:absolute; inset:0;
-  background: linear-gradient(180deg, rgba(0,0,0,.25) 0%, rgba(0,0,0,.55) 100%);
+  position:absolute;
+  inset:0;
+  background: rgba(0,0,0,0.45);
   transition: background .35s ease;
 }
 
-/* Testo centrato */
+/* testo centrato */
 .cards .card__overlay{
   position: absolute;
   inset: 0;
   display: flex;
   flex-direction: column;
-  justify-content: center;       /* <<< centrato verticalmente */
-  align-items: center;           /* <<< centrato orizzontalmente */
-  padding: 22px;
-  color: #fff;
+  justify-content: center;
+  align-items: center;
   text-align: center;
+  color: #fff;
+  padding: 20px;
+  z-index: 2;
 }
 
 .cards .card__overlay h3{
-  font-size: 36px;
+  font-size: 42px;
   line-height: 1.1;
   margin-bottom: 12px;
-  text-transform: uppercase;
   letter-spacing: 1px;
+  text-transform: uppercase;
 }
 
 .cards .card__overlay p{
   font-family: "Inter", sans-serif;
-  font-size: 18px;
-  line-height: 1.6;
-  color: #f4f4f4;
+  font-size: 20px;
+  color: #f8f8f8;
+  max-width: 500px;
   margin: 0 auto;
-  max-width: 420px;
+  line-height: 1.6;
 }
 
-.cards .card:hover{
-  transform: translateY(-6px);
-  box-shadow: 0 20px 50px rgba(0,0,0,.25);
-}
-
-/* Immagini di sfondo per ciascun riquadro */
+/* Immagini di sfondo (corretto percorso) */
 .card--storia   { background-image: url('../storia.jpg'); }
 .card--visione  { background-image: url('../visione.jpg'); }
 .card--identita { background-image: url('../identita.jpg'); }
 .card--prodotti { background-image: url('../prodotti.jpg'); }
 
-/* Mobile */
+/* Mobile: una card per riga */
 @media (max-width: 880px){
-  .cards.cards--big{ grid-template-columns: 1fr; }
-  .cards .card{ min-height: 300px; }
+  .cards.cards--big{
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    height: auto;
+  }
+  .cards .card{
+    min-height: 60vh;
+  }
   .cards .card__overlay h3{ font-size: 28px; }
   .cards .card__overlay p{ font-size: 16px; }
 }
