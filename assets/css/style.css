@@ -283,178 +283,111 @@ footer {
 html {
   scroll-behavior: smooth;
 }
+
 /* =======================
    HEADER CENTRALE E MENU
 ======================= */
 
-.hero-header{
+.hero-header {
   position: fixed;
-  top: 0; left: 0; width: 100%;
-  display: flex; flex-direction: column; align-items: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   gap: 8px;
   padding-top: 10px;
   z-index: 9999;
-  pointer-events: auto;     /* serve per poter fare :hover sull’header */
+  pointer-events: auto;
 }
 
 /* LOGO in alto, centrato */
-.hero-logo{
+.hero-logo {
   position: fixed;
   top: 10px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 10000;
-  transition: all .35s ease;
+  transition: all 0.35s ease;
   pointer-events: auto;
 }
-.hero-logo img{
-  height: 200px;               /* dimensione iniziale */
+.hero-logo img {
+  height: 200px;
   width: auto;
-  filter: brightness(1000%) drop-shadow(0 0 6px rgba(255,255,255,.30));
-  transition: all .35s ease;
+  filter: brightness(1000%) drop-shadow(0 0 6px rgba(255,255,255,.3));
+  transition: all 0.35s ease;
 }
-.hero-logo:hover img{ transform: scale(1.04); }
+.hero-logo:hover img { transform: scale(1.04); }
 
 /* Menu (invisibile finché non passi col mouse) */
-.hero-nav{
+.hero-nav {
   opacity: 0;
   transform: translateY(-8px);
   pointer-events: none;
-  transition: opacity .35s ease, transform .35s ease;
+  transition: opacity 0.35s ease, transform 0.35s ease;
   display: flex;
-  justify-content: center;     /* centrato quando sei in alto */
+  justify-content: center;
   flex-wrap: wrap;
   gap: 24px;
   margin-top: 8px;
 }
 
-/* Mostra il menu quando passi su header/logo/menu */
+/* Mostra il menu al passaggio */
 .hero-header:hover .hero-nav,
 .hero-logo:hover ~ .hero-nav,
-.hero-nav:hover{
+.hero-nav:hover {
   opacity: 1;
   transform: translateY(0);
   pointer-events: auto;
 }
 
 /* Link del menu */
-.hero-nav a{
-  color: #fff; text-decoration: none;
+.hero-nav a {
+  color: #fff;
+  text-decoration: none;
   font-family: "Cormorant Garamond", serif;
-  font-size: 20px; letter-spacing: .5px;
+  font-size: 20px;
+  letter-spacing: 0.5px;
   padding: 8px 16px;
-  border: 1px solid rgba(255,255,255,.25);
+  border: 1px solid rgba(255,255,255,0.25);
   border-radius: 18px;
   backdrop-filter: blur(6px);
-  background: rgba(0,0,0,.22);
-  transition: color .25s ease, transform .25s ease, background .25s ease;
+  background: rgba(0,0,0,0.22);
+  transition: color 0.25s ease, transform 0.25s ease, background 0.25s ease;
 }
-.hero-nav a:hover{
+.hero-nav a:hover {
   color: #f6e6be;
   transform: translateY(-2px);
-  background: rgba(0,0,0,.32);
+  background: rgba(0,0,0,0.32);
 }
 
 /* =========================
    STATO SCROLLATO – LOGO E MENU STICKY
 ========================= */
 
-/* Logo a sinistra (distanza dal bordo) */
-body.is-scrolled .hero-logo{
-  left: 20px;                  /* regola a piacere (15–30px) */
+body.is-scrolled .hero-logo {
+  left: 20px;
   transform: translateX(0);
 }
-body.is-scrolled .hero-logo img{
-  height: 108px;               /* logo più piccolo in sticky */
+body.is-scrolled .hero-logo img {
+  height: 108px;
 }
 
-/* Allinea contenuti a sinistra e dai un filo di respiro */
-body.is-scrolled .hero-header{
+body.is-scrolled .hero-header {
   align-items: flex-start;
   padding-left: 8px;
 }
 
-/* Sposta la barra a destra del logo quando si scrolla */
-body.is-scrolled .hero-nav{
+body.is-scrolled .hero-nav {
   justify-content: flex-start;
-  margin-left: 180px;          /* distanza dal logo: aumenta/diminuisci 160–220px */
+  margin-left: 180px; /* regola 160–220px a piacere */
 }
 
 /* --------- MOBILE --------- */
-@media (max-width: 720px){
-  .hero-logo img{ height: 64px; }
-  body.scrolled .hero-nav{ margin-left: 76px; } /* logo mobile + spazio */
-  .hero-nav{ gap: 12px; }
-  .hero-nav a{ font-size: 18px; padding: 6px 12px; }
-}
-
-/* MOBILE */
 @media (max-width: 720px) {
-  .hero-logo img {
-    height: 52px;
-  }
-  .hero-nav {
-    gap: 16px;
-  }
-  .hero-nav a {
-    font-size: 18px;
-    .hero-nav {
-  margin-left: 100px; /* sposta la barra più a destra */
-  transition: margin-left 0.3s ease;
-}
-  }
-}
-
-/* Logo sempre visibile; a sinistra quando si scrolla */
-.hero-logo {
-  position: relative;
-  z-index: 10000;
-  pointer-events: auto;                 /* deve poter ricevere il click */
-  transition: top .35s ease, left .35s ease, transform .35s ease;
-}
-.hero-logo img {
-  height: 208px;                         /* dimensione iniziale centro */
-  width: auto;
-  transition: height .35s ease, filter .35s ease, transform .35s ease;
-}
-
-/* Quando la pagina è scrollata */
-body.is-scrolled .hero-header {
-  align-items: flex-start;              /* allinea contenuti a sinistra */
-  padding-top: 8px;
-}
-body.is-scrolled .hero-logo {
-  position: fixed;                      /* stacca dal flusso: resta visibile */
-  top: 12px;                            /* distanza dal bordo alto */
-  left: 16px;                           /* distanza dal bordo sinistro */
-  transform: translateY(0);             /* niente offset verticale */
-}
-body.is-scrolled .hero-logo img {
-  height: 108px;                         /* più piccolo in versione sticky */
-  filter: brightness(1000%) drop-shadow(0 0 4px rgba(255,255,255,.25));
-}
-
-/* Mantieni il menu “a comparsa” anche in sticky */
-body.is-scrolled .hero-nav {
-  margin-left: 72px;                    /* un po’ di spazio, sotto/accanto al logo */
-}
-
-/* Mostra il menu quando:
-   - passi sull'header,
-   - passi sul logo,
-   - passi sul menu stesso */
-.hero-header:hover .hero-nav,
-.hero-logo:hover ~ .hero-nav,
-.hero-nav:hover {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
-}
-.hero-header:hover .hero-nav,
-.hero-logo:hover ~ .hero-nav,
-.hero-nav:hover {
-  background: rgba(0,0,0,0.25);
-  backdrop-filter: blur(6px);
-  border-radius: 10px;
-  padding: 8px 14px;
+  .hero-logo img { height: 64px; }
+  body.is-scrolled .hero-nav { margin-left: 100px; }
+  .hero-nav { gap: 12px; }
+  .hero-nav a { font-size: 18px; padding: 6px 12px; }
 }
