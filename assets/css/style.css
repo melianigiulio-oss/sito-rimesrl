@@ -579,4 +579,81 @@ body.is-scrolled .hero-nav {
   #sezioni .card__overlay h3 { font-size: 28px; }
   #sezioni .card__overlay p  { font-size: 16px; }
 }
+/* ===== QUADRI FULL SCREEN 2x2 ===== */
+#sezioni.cards-full,
+#sezioni {
+  position: relative;
+  width: 100vw;
+  height: 100vh;                 /* tutta l’altezza visibile */
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0;                        /* niente spazi */
+}
+
+/* ogni riquadro riempie la sua cella, senza bordi/arrotondamenti */
+#sezioni .card {
+  display: block;
+  position: relative;
+  margin: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+/* sfondo per ciascun riquadro (le immagini sono in assets/css/) */
+#sezioni .card--storia   { background-image: url('../css/storia.jpg'); }
+#sezioni .card--visione  { background-image: url('../css/visione.jpg'); }
+#sezioni .card--identita { background-image: url('../css/identita.jpg'); }
+#sezioni .card--prodotti { background-image: url('../css/prodotti.jpg'); }
+
+/* velo scuro per leggibilità – non deve bloccare i click */
+#sezioni .card::before {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,.28) 0%, rgba(0,0,0,.45) 100%);
+  pointer-events: none;          /* <<< importante per rendere cliccabile */
+}
+
+/* testo centrato perfettamente */
+#sezioni .card__overlay {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center;
+  padding: 24px;
+  color: #fff;
+  z-index: 1;
+}
+#sezioni .card__overlay h3 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 42px;
+  line-height: 1.1;
+  margin: 0 0 10px;
+}
+#sezioni .card__overlay p {
+  font-family: "Inter", sans-serif;
+  font-size: 18px;
+  line-height: 1.6;
+  margin: 0;
+  color: #f3f3f3;
+}
+
+/* rimuovi spazi beige sopra/sotto la griglia */
+.hero + #sezioni { margin-top: 0; }
+#sezioni + *     { margin-top: 0; }
+
+/* mobile: una colonna */
+@media (max-width: 880px){
+  #sezioni { height: auto; grid-template-columns: 1fr; grid-template-rows: none; }
+  #sezioni .card { min-height: 28vh; }
+  #sezioni .card__overlay h3 { font-size: 28px; }
+  #sezioni .card__overlay p  { font-size: 16px; }
+}
 
