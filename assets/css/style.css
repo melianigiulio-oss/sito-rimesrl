@@ -499,93 +499,84 @@ body.is-scrolled .hero-nav {
   background: rgba(0,0,0,.32);
   transform: translateY(-2px);
 }
-/* ====== SEZIONE 4 CARDS A SCHERMO INTERO ====== */
-.cards.cards--big{
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, 50vh);     /* ogni riquadro metà schermo */
-  gap: 0;                                 /* nessuno spazio tra i quadrati */
-  width: 100vw;
-  height: 100vh;                          /* tutta l’altezza visibile */
+
+/* ====== QUADRI FULL SCREEN (2x2) ====== */
+#sezioni.cards-big, /* compat con vecchio nome, se c’è */
+#sezioni {
+  width: 100%;
+  height: 100vh;             /* occupa l’intero schermo */
   margin: 0;
   padding: 0;
-  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr; /* 4 quadranti uguali */
+  gap: 0;                      /* nessuno spazio */
 }
 
-.cards .card{
+/* Card base */
+#sezioni .card {
   position: relative;
-  border: none;
-  border-radius: 0;
+  display: flex;
+  align-items: center;         /* centra verticalmente il testo */
+  justify-content: center;     /* centra orizzontalmente il testo */
+  text-align: center;
+  color: #fff;
   overflow: hidden;
-  text-decoration: none;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  transition: transform .4s ease, filter .4s ease;
 }
 
-/* leggero effetto al passaggio */
-.cards .card:hover{
-  transform: scale(1.03);
-  filter: brightness(1.1);
+/* Velo per leggibilità del testo */
+#sezioni .card::before {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,.30) 0%, rgba(0,0,0,.45) 100%);
 }
 
-/* overlay per contrasto testo */
-.cards .card::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background: rgba(0,0,0,0.45);
-  transition: background .35s ease;
+/* Contenuto centrato sopra il velo */
+#sezioni .card__overlay {
+  position: relative;
+  z-index: 1;
+  padding: 24px;
+  max-width: 640px;
 }
 
-/* testo centrato */
-.cards .card__overlay{
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  color: #fff;
-  padding: 20px;
-  z-index: 2;
-}
-
-.cards .card__overlay h3{
+#sezioni .card__overlay h3 {
+  font-family: "Cormorant Garamond", serif;
   font-size: 42px;
   line-height: 1.1;
-  margin-bottom: 12px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
+  margin: 0 0 10px 0;
+  letter-spacing: .5px;
+  text-transform: none;
 }
 
-.cards .card__overlay p{
+#sezioni .card__overlay p {
   font-family: "Inter", sans-serif;
-  font-size: 20px;
-  color: #f8f8f8;
-  max-width: 500px;
-  margin: 0 auto;
+  font-size: 18px;
   line-height: 1.6;
+  margin: 0;
+  color: #f3f3f3;
 }
 
-/* Immagini di sfondo (corretto percorso) */
-.card--storia   { background-image: url('../css/storia.jpg'); }
-.card--visione  { background-image: url('../css/visione.jpg'); }
-.card--identita { background-image: url('../css/identita.jpg'); }
-.card--prodotti { background-image: url('../css/prodotti.jpg'); }
+/* Hover leggero */
+#sezioni .card:hover { transform: scale(1.01); }
+#sezioni .card { transition: transform .35s ease; }
 
-/* Mobile: una card per riga */
+/* Immagini di sfondo – mettile nella stessa cartella del CSS */
+#sezioni .card--storia   { background-image: url('storia.jpg'); }
+#sezioni .card--visione  { background-image: url('visione.jpg'); }
+#sezioni .card--identita { background-image: url('identita.jpg'); }
+#sezioni .card--prodotti { background-image: url('prodotti.jpg'); }
+
+/* Mobile: una colonna, 4 righe */
 @media (max-width: 880px){
-  .cards.cards--big{
+  #sezioni {
     grid-template-columns: 1fr;
-    grid-template-rows: auto;
-    height: auto;
+    grid-template-rows: repeat(4, 25vh); /* 4 blocchi compatti */
+    height: auto;                         /* lascia scorrere */
   }
-  .cards .card{
-    min-height: 60vh;
-  }
-  .cards .card__overlay h3{ font-size: 28px; }
-  .cards .card__overlay p{ font-size: 16px; }
+  #sezioni .card__overlay h3 { font-size: 28px; }
+  #sezioni .card__overlay p  { font-size: 16px; }
 }
+
