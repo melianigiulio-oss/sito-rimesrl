@@ -915,3 +915,29 @@ section.hero-slider{
   margin-top: 0 !important;
   padding-top: 0 !important;
 }
+/* --- MOBILE: il menu si apre SOLO con la classe .open, niente :hover --- */
+@media (max-width: 720px){
+  /* stato base: chiuso */
+  .hero-nav{
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-8px);
+    transition: opacity .25s ease, transform .25s ease;
+  }
+
+  /* disattiva qualsiasi apertura via hover */
+  .hero-header:hover .hero-nav,
+  .hero-logo:hover ~ .hero-nav,
+  .hero-nav:hover{
+    opacity: 0 !important;
+    pointer-events: none !important;
+    transform: translateY(-8px) !important;
+  }
+
+  /* unico stato aperto su mobile */
+  .hero-nav.open{
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    transform: translateY(0) !important;
+  }
+}
