@@ -697,8 +697,8 @@ body {
 
 /* Card immagine più grandi */
 .g-item{
-  width: 280px;            /* ↑ aumenta se vuoi ancora più grandi */
-  height: 280px;
+  width: 360px;            /* ↑ aumenta se vuoi ancora più grandi */
+  height: 360px;
   object-fit: cover;
   border-radius: 14px;
   flex: 0 0 auto;
