@@ -8,30 +8,25 @@
 </head>
 <body>
 
-  <!-- =========================
-       HEADER CON LOGO + MENU
-  ========================== -->
+  <!-- ================== HEADER (logo + menu) ================== -->
   <header class="hero-header">
     <a class="hero-logo" href="#home" aria-label="Vai alla home">
       <img src="assets/css/logo-white.png" alt="RIME">
     </a>
 
-<nav class="hero-nav">
-  <!-- aprono nuove pagine -->
-  <a href="storia.html">La nostra storia</a>
-  <a href="visione.html">Visione</a>
-  <a href="identita.html">Identità</a>
-  <a href="prodotti.html">Prodotti</a>
+    <nav class="hero-nav">
+      <!-- Le prime 4 voci aprono pagine dedicate -->
+      <a href="storia.html">La nostra storia</a>
+      <a href="visione.html">Visione</a>
+      <a href="identita.html">Identità</a>
+      <a href="prodotti.html">Prodotti</a>
+      <!-- Queste 2 scrollano nella home -->
+      <a href="#galleria">Galleria</a>
+      <a href="#contatti">Contatti</a>
+    </nav>
+  </header>
 
-  <!-- restano in home e scrollano -->
-  <a href="#galleria">Galleria</a>
-  <a href="#contatti">Contatti</a>
-</nav>
-
-
-  <!-- ==============
-       HERO COVER
-  =============== -->
+  <!-- ================== HERO COVER ================== -->
   <section class="hero" id="home">
     <div class="hero__shade"></div>
     <div class="hero__content">
@@ -41,47 +36,48 @@
     <a href="#sezioni" class="hero__scroll" aria-label="Scorri">▾</a>
   </section>
 
-<!-- ===== GRID 4 QUADRI FULL ===== -->
+  <!-- ================== 4 QUADRI A TUTTO SCHERMO ================== -->
+  <!-- NB: richiedono nel CSS il blocco .cards-full / .card / .card__overlay
+           e le classi card--storia / card--visione / card--identita / card--prodotti
+           con le immagini di sfondo -->
+  <section id="sezioni" class="cards-full">
+    <a class="card card--storia" href="storia.html">
+      <div class="card__overlay">
+        <h3>La nostra storia</h3>
+        <p>Un progetto nato dalla ricerca dell’essenziale, dove la bellezza prende forma lentamente.</p>
+      </div>
+    </a>
 
-<section id="sezioni" class="cards-full">
-  <a class="card card--storia" href="storia.html">
-    <div class="card__overlay">
-      <h3>La nostra storia</h3>
-      <p>Un progetto nato dalla ricerca dell’essenziale, dove la bellezza prende forma lentamente.</p>
-    </div>
-  </a>
+    <a class="card card--visione" href="visione.html">
+      <div class="card__overlay">
+        <h3>Visione</h3>
+        <p>Ricerca e territorio, per una purezza autentica che diventa esperienza.</p>
+      </div>
+    </a>
 
-  <a class="card card--visione" href="visione.html">
-    <div class="card__overlay">
-      <h3>Visione</h3>
-      <p>Ricerca e territorio, per una purezza autentica che diventa esperienza.</p>
-    </div>
-  </a>
+    <a class="card card--identita" href="identita.html">
+      <div class="card__overlay">
+        <h3>Identità</h3>
+        <p>Mani, tempo, materia: uno stile italiano, sobrio e luminoso.</p>
+      </div>
+    </a>
 
-  <a class="card card--identita" href="identita.html">
-    <div class="card__overlay">
-      <h3>Identità</h3>
-      <p>Mani, tempo, materia: uno stile italiano, sobrio e luminoso.</p>
-    </div>
-  </a>
+    <a class="card card--prodotti" href="prodotti.html">
+      <div class="card__overlay">
+        <h3>Prodotti</h3>
+        <p>Spiriti di creazione: piccole serie, cura estrema, carattere vero.</p>
+      </div>
+    </a>
+  </section>
 
-  <a class="card card--prodotti" href="prodotti.html">
-    <div class="card__overlay">
-      <h3>Prodotti</h3>
-      <p>Spiriti di creazione: piccole serie, cura estrema, carattere vero.</p>
-    </div>
-  </a>
-</section>
+  <!-- ================== BANNER DIVISORE (opzionale) ================== -->
+  <section class="divider-banner" aria-hidden="true"></section>
 
-
-
-  <!-- =======================
-       GALLERIA ORIZZONTALE
-  ======================== -->
+  <!-- ================== GALLERIA ORIZZONTALE (resta in home) ================== -->
   <section id="galleria" class="container">
     <h2>Galleria</h2>
     <div class="hscroll" role="region" aria-label="Galleria foto">
-      <!-- Sostituisci gli src con le immagini reali -->
+      <!-- Sostituisci gli src con le tue immagini reali -->
       <img src="assets/css/hero.jpg" alt="Dettaglio luce dorata">
       <img src="assets/css/hero.jpg" alt="Texture calde">
       <img src="assets/css/hero.jpg" alt="Dettagli bottiglia">
@@ -90,9 +86,7 @@
     </div>
   </section>
 
-  <!-- ==========
-       CONTATTI
-  ============ -->
+  <!-- ================== CONTATTI (resta in home) ================== -->
   <section id="contatti" class="contacts">
     <div class="container">
       <h2>Contatti</h2>
@@ -100,7 +94,7 @@
 
       <div class="contacts__grid">
         <a class="btn" href="mailto:info@rimesrl.com" aria-label="Scrivi a info@rimesrl.com">info@rimesrl.com</a>
-        <a class="btn" href="#prodotti">Catalogo</a>
+        <a class="btn" href="prodotti.html">Catalogo</a>
         <a class="btn" href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>
       </div>
     </div>
@@ -112,13 +106,11 @@
     <p>© 2025 RIME — Tutti i diritti riservati</p>
   </footer>
 
-  <!-- ======================
-       FINESTRA VERIFICA ETÀ
-  ======================= -->
-  <div id="age-gate" class="age-overlay" role="dialog" aria-modal="true" aria-labelledby="age-title">
-    <img src="assets/css/logo.jpeg" alt="" class="age-logo" aria-hidden="true">
+  <!-- ================== AGE GATE ================== -->
+  <div id="age-gate" class="age-overlay">
+    <img src="assets/css/logo.jpeg" alt="RIME" class="age-logo">
     <div class="age-box">
-      <h2 id="age-title">Hai l’età legale per bere bevande alcoliche?</h2>
+      <h2>Hai l’età legale per bere bevande alcoliche?</h2>
       <div class="buttons">
         <button id="yes">Sì</button>
         <button id="no">No</button>
@@ -126,30 +118,28 @@
     </div>
   </div>
 
-  <!-- Gate età -->
+  <!-- ================== SCRIPTS ================== -->
+  <!-- Age gate -->
   <script>
     const AGE_KEY = 'ageVerifiedV2';
     const params = new URLSearchParams(location.search);
     if (params.has('reset')) localStorage.removeItem(AGE_KEY);
-
     if (!localStorage.getItem(AGE_KEY)) {
       document.getElementById('age-gate').style.display = 'flex';
     }
-
     document.getElementById('yes').addEventListener('click', () => {
       localStorage.setItem(AGE_KEY, 'true');
       document.getElementById('age-gate').style.display = 'none';
     });
-
     document.getElementById('no').addEventListener('click', () => {
       window.location.href = 'https://www.google.com';
     });
   </script>
 
-  <!-- Attiva stato “is-scrolled” per spostare logo e barra -->
+  <!-- Stato "is-scrolled" per spostare logo e barra -->
   <script>
     (function () {
-      const THRESHOLD = 120; // pixel prima di spostare il logo
+      const THRESHOLD = 120;
       function onScroll() {
         if (window.scrollY > THRESHOLD) {
           document.body.classList.add('is-scrolled');
