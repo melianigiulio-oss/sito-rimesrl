@@ -224,28 +224,34 @@
 </script>
 
 <script>
-// --- MENU MOBILE: toggle su click logo, chiusura su tap fuori + scroll/touch ---
+// --- MENU: su MOBILE apre/chiude il menu; su DESKTOP il logo resta un link ---
 (function(){
   const nav  = document.querySelector('.hero-nav');
   const logo = document.querySelector('.hero-logo');
-
   if (!nav || !logo) return;
+
+  const isMobile = () => window.matchMedia('(max-width: 820px)').matches;
 
   function openNav(){ nav.classList.add('open'); }
   function closeNav(){ nav.classList.remove('open'); }
-  function toggleNav(e){ e.preventDefault(); nav.classList.toggle('open'); }
 
-  // Apri/chiudi col logo
-  logo.addEventListener('click', toggleNav);
+  // Click sul logo: solo su mobile blocco la navigazione e faccio toggle
+  logo.addEventListener('click', (e) => {
+    if (isMobile()) {
+      e.preventDefault();
+      nav.classList.toggle('open');
+    }
+    // su desktop NON faccio nulla: il link funziona normalmente
+  });
 
-  // Chiudi toccando fuori dal menu (ma non se tocchi il logo)
+  // Chiudi toccando/cliccando fuori da menu e logo
   document.addEventListener('click', (e) => {
     if (!nav.classList.contains('open')) return;
     if (nav.contains(e.target) || logo.contains(e.target)) return;
     closeNav();
   }, {passive:true});
 
-  // Chiudi anche quando l’utente muove/scrolla la pagina
+  // Chiudi anche quando l’utente scorre / muove il dito (mobile & desktop)
   const closeOnMove = () => { if (nav.classList.contains('open')) closeNav(); };
   window.addEventListener('scroll',     closeOnMove, {passive:true});
   window.addEventListener('touchstart', closeOnMove, {passive:true});
