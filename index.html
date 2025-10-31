@@ -73,18 +73,33 @@
   <!-- ================== BANNER DIVISORE (opzionale) ================== -->
   <section class="divider-banner" aria-hidden="true"></section>
 
-  <!-- ================== GALLERIA ORIZZONTALE (resta in home) ================== -->
-  <section id="galleria" class="container">
+<!-- ===== GALLERIA ===== -->
+<section id="galleria" class="gallery-section">
+  <div class="container">
     <h2>Galleria</h2>
-    <div class="hscroll" role="region" aria-label="Galleria foto">
-      <!-- Sostituisci gli src con le tue immagini reali -->
-      <img src="assets/css/hero.jpg" alt="Dettaglio luce dorata">
-      <img src="assets/css/hero.jpg" alt="Texture calde">
-      <img src="assets/css/hero.jpg" alt="Dettagli bottiglia">
-      <img src="assets/css/hero.jpg" alt="Atelier">
-      <img src="assets/css/hero.jpg" alt="Materia e luce">
+
+    <div class="gallery-wrap">
+      <button class="g-btn g-prev" aria-label="Foto precedenti">‹</button>
+
+      <div class="hscroll" id="galleryTrack" role="region" aria-label="Galleria foto">
+        <!-- Metti qui le TUE immagini -->
+        <img src="assets/css/hero.jpg" alt="Dettaglio luce dorata" class="g-item" />
+        <img src="assets/css/hero.jpg" alt="Texture calde" class="g-item" />
+        <img src="assets/css/hero.jpg" alt="Dettagli bottiglia" class="g-item" />
+        <img src="assets/css/hero.jpg" alt="Atelier" class="g-item" />
+        <img src="assets/css/hero.jpg" alt="Materia e luce" class="g-item" />
+      </div>
+
+      <button class="g-btn g-next" aria-label="Foto successive">›</button>
     </div>
-  </section>
+  </div>
+</section>
+
+<!-- Lightbox semplice -->
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lb-close" aria-label="Chiudi">×</button>
+  <img id="lightboxImg" alt="">
+</div>
 
   <!-- ================== CONTATTI (resta in home) ================== -->
   <section id="contatti" class="contacts">
