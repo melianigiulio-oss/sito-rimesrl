@@ -671,3 +671,84 @@ body.is-scrolled .hero-nav {
 body {
   background: #000; /* oppure un colore neutro se serve, per sicurezza */
 }
+/* ===== GALLERIA – stile nuovo ===== */
+.gallery-section{
+  background: var(--bg);                  /* beige */
+  padding: 60px 0;
+}
+
+.gallery-wrap{
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Traccia orizzontale */
+.hscroll{
+  display: flex;
+  gap: 18px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 12px 4px;
+}
+.hscroll::-webkit-scrollbar{ display:none; }  /* nasconde barra */
+.hscroll{ scrollbar-width:none; }            /* Firefox */
+
+/* Card immagine più grandi */
+.g-item{
+  width: 280px;            /* ↑ aumenta se vuoi ancora più grandi */
+  height: 280px;
+  object-fit: cover;
+  border-radius: 14px;
+  flex: 0 0 auto;
+  cursor: zoom-in;
+  box-shadow: 0 4px 20px rgba(0,0,0,.25);
+  transition: transform .25s ease;
+}
+.g-item:hover{ transform: translateY(-4px); }
+
+/* Frecce */
+.g-btn{
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,.35);
+  background: rgba(0,0,0,.25);
+  backdrop-filter: blur(6px);
+  color: #fff;
+  font-size: 28px; line-height: 0;
+  display: grid; place-items: center;
+  cursor: pointer;
+  transition: transform .2s ease, background .2s ease;
+}
+.g-btn:hover{ transform: scale(1.08); background: rgba(0,0,0,.35); }
+.g-prev{ margin-left: 4px; }
+.g-next{ margin-right: 4px; }
+
+/* Lightbox */
+.lightbox{
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,.7);
+  display: none;
+  align-items: center; justify-content: center;
+  z-index: 99999;
+  padding: 24px;
+}
+.lightbox img{
+  max-width: 92vw; max-height: 90vh;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0,0,0,.5);
+}
+.lb-close{
+  position: absolute; top: 14px; right: 18px;
+  width: 40px; height: 40px; border-radius: 50%;
+  border: 1px solid rgba(255,255,255,.4);
+  background: rgba(0,0,0,.35);
+  color:#fff; font-size: 24px; line-height: 0; cursor: pointer;
+}
+
+/* Mobile piccoli */
+@media (max-width: 720px){
+  .g-item{ width: 220px; height: 220px; }
+}
