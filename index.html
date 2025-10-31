@@ -26,15 +26,25 @@
     </nav>
   </header>
 
-  <!-- ================== HERO COVER ================== -->
-  <section class="hero" id="home">
-    <div class="hero__shade"></div>
-    <div class="hero__content">
-      <h1>RIME – Spiriti di creazione</h1>
-      <p class="hero__subtitle">L’arte italiana del distillato</p>
-    </div>
-    <a href="#sezioni" class="hero__scroll" aria-label="Scorri">▾</a>
-  </section>
+  <!-- HERO SLIDER (sostituisce la vecchia HERO) -->
+<section id="home" class="hero-slider">
+  <!-- slide 1 -->
+  <div class="slide active" style="background-image:url('assets/css/hero.jpg')"></div>
+  <!-- slide 2 -->
+  <div class="slide" style="background-image:url('assets/css/visione.jpg')"></div>
+  <!-- slide 3 -->
+  <div class="slide" style="background-image:url('assets/css/storia.jpg')"></div>
+
+  <!-- Testi in sovrimpressione -->
+  <div class="hero-txt">
+    <h1>RIME – Spiriti di creazione</h1>
+    <p class="hero-sub">L’arte italiana del distillato</p>
+  </div>
+
+  <!-- freccia per scorrere giù (opzionale) -->
+  <a href="#sezioni" class="hero-scroll" aria-label="Scorri">▾</a>
+</section>
+
 
   <!-- ================== 4 QUADRI A TUTTO SCHERMO ================== -->
   <!-- NB: richiedono nel CSS il blocco .cards-full / .card / .card__overlay
@@ -200,6 +210,22 @@
     window.addEventListener('keydown', (e) => { if (e.key === 'Escape') hide(); });
   })();
 </script>
+
+  <script>
+  // Slider hero: cambia slide ogni 3 secondi
+  (function(){
+    const slides = document.querySelectorAll('.hero-slider .slide');
+    if (!slides.length) return;
+
+    let i = 0;
+    setInterval(() => {
+      slides[i].classList.remove('active');
+      i = (i + 1) % slides.length;
+      slides[i].classList.add('active');
+    }, 3000); // 3000 ms = 3 secondi
+  })();
+</script>
+
 
 </body>
 </html>
