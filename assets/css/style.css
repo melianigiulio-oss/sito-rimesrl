@@ -779,4 +779,37 @@ section + section {
   margin-top: 0 !important;
   padding-top: 0 !important;
 }
+/* --- Avvicina i 4 riquadri (sezione #sezioni) alla galleria (#galleria) --- */
+
+/* 1) niente spazio alla fine dei riquadri */
+#sezioni { 
+  margin-bottom: 0 !important;
+}
+#sezioni .container { 
+  padding-bottom: 0 !important;
+}
+
+/* 2) niente spazio all'inizio della galleria */
+#sezioni + #galleria {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+/* 2a) la container della galleria non aggiunge padding alto */
+#sezioni + #galleria .container {
+  padding-top: 0 !important;
+}
+/* 2b) il titolo “Galleria” non spinge in basso */
+#sezioni + #galleria h2 {
+  margin-top: 8px !important;
+}
+
+/* 3) assicurati che fondo/contatti siano beige, non neri */
+#sezioni, 
+#galleria,
+#contatti,
+.contacts, 
+footer {
+  background: var(--bg) !important;  /* beige */
+  color: var(--text);
+}
 
