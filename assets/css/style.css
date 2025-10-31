@@ -396,6 +396,22 @@ body.is-scrolled .hero-nav {
   .hero-nav { gap: 12px; }
   .hero-nav a { font-size: 18px; padding: 6px 12px; }
 }
+/* ===== Versione mobile: ingrandisci logo in cima ===== */
+@media (max-width: 720px) {
+  .hero-logo img {
+    height: 90px !important;   /* aumenta la dimensione del logo quando sei in cima */
+    transition: height 0.3s ease;
+  }
+}
+
+/* ===== Logo più piccolo dopo lo scroll ===== */
+@media (max-width: 720px) {
+  body.is-scrolled .hero-logo img {
+    height: 55px !important;   /* ridotto quando scorri in basso */
+  }
+}
+
+
 /* ====== 4 QUADRI ====== */
 .cards {
   display: grid;
