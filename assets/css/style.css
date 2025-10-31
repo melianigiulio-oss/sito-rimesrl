@@ -751,3 +751,15 @@ body {
 @media (max-width: 720px){
   .g-item{ width: 220px; height: 220px; }
 }
+
+/* Riduce o elimina lo spazio tra i quadrati e la galleria */
+.cards-section {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+#galleria {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
