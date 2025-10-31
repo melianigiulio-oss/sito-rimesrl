@@ -224,41 +224,47 @@
 </script>
 
 <script>
-// --- MENU: su MOBILE apre/chiude il menu; su DESKTOP il logo resta un link ---
+// --- MENU MOBILE (funziona su tutte le dimensioni) ---
 (function(){
   const nav  = document.querySelector('.hero-nav');
-  const logo = document.querySelector('.hero-logo');
-  if (!nav || !logo) return;
+  const logoLink = document.querySelector('.hero-logo a, .hero-logo'); // cattura sia il div che il link
+  if (!nav || !logoLink) return;
 
-  const isMobile = () => window.matchMedia('(max-width: 820px)').matches;
+  // rileva se è mobile
+  function isMobile(){
+    return window.innerWidth <= 820;
+  }
 
-  function openNav(){ nav.classList.add('open'); }
-  function closeNav(){ nav.classList.remove('open'); }
+  // apri o chiudi menu
+  function toggleMenu(e){
+    if (!isMobile()) return; // se è desktop, lascia il link funzionare
+    e.preventDefault(); // blocca solo su mobile
+    nav.classList.toggle('open');
+  }
 
-  // Click sul logo: solo su mobile blocco la navigazione e faccio toggle
-  logo.addEventListener('click', (e) => {
-    if (isMobile()) {
-      e.preventDefault();
-      nav.classList.toggle('open');
-    }
-    // su desktop NON faccio nulla: il link funziona normalmente
-  });
+  function closeMenu(){
+    nav.classList.remove('open');
+  }
 
-  // Chiudi toccando/cliccando fuori da menu e logo
+  // click sul logo
+  logoLink.addEventListener('click', toggleMenu);
+
+  // chiudi cliccando fuori
   document.addEventListener('click', (e) => {
     if (!nav.classList.contains('open')) return;
-    if (nav.contains(e.target) || logo.contains(e.target)) return;
-    closeNav();
-  }, {passive:true});
+    if (nav.contains(e.target) || logoLink.contains(e.target)) return;
+    closeMenu();
+  });
 
-  // Chiudi anche quando l’utente scorre / muove il dito (mobile & desktop)
-  const closeOnMove = () => { if (nav.classList.contains('open')) closeNav(); };
-  window.addEventListener('scroll',     closeOnMove, {passive:true});
-  window.addEventListener('touchstart', closeOnMove, {passive:true});
-  window.addEventListener('touchmove',  closeOnMove, {passive:true});
-  window.addEventListener('wheel',      closeOnMove, {passive:true});
+  // chiudi anche se l’utente scrolla o muove il dito
+  ['scroll','touchstart','touchmove','wheel'].forEach(ev =>
+    window.addEventListener(ev, () => {
+      if (nav.classList.contains('open')) closeMenu();
+    }, {passive:true})
+  );
 })();
 </script>
+
 
     
 </body>
