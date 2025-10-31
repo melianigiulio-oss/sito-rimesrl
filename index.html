@@ -236,5 +236,22 @@ document.addEventListener("click", (e) => {
 });
 </script>
 
+<script>
+// Chiudi il menu mobile se si scrolla
+let lastScrollY = window.scrollY;
+
+window.addEventListener("scroll", () => {
+  const nav = document.querySelector(".hero-nav");
+  const logo = document.querySelector(".hero-logo");
+
+  // Se il menu è aperto e l'utente scorre, chiudi
+  if (nav.classList.contains("open")) {
+    nav.classList.remove("open");
+  }
+
+  lastScrollY = window.scrollY;
+});
+</script>
+    
 </body>
 </html>
