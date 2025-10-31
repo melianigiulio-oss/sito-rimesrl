@@ -223,6 +223,18 @@
   })();
 </script>
 
+<script>
+// Chiude il menu mobile se si tocca fuori
+document.addEventListener("click", (e) => {
+  const nav = document.querySelector(".hero-nav"); // il menu mobile
+  const logo = document.querySelector(".hero-logo"); // il logo che apre il menu
+
+  // Se il menu è aperto e si clicca fuori dal logo o dal menu → chiudi
+  if (nav.classList.contains("open") && !nav.contains(e.target) && !logo.contains(e.target)) {
+    nav.classList.remove("open");
+  }
+});
+</script>
 
 </body>
 </html>
