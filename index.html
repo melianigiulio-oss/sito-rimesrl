@@ -224,34 +224,36 @@
 </script>
 
 <script>
-// Chiude il menu mobile se si tocca fuori
-document.addEventListener("click", (e) => {
-  const nav = document.querySelector(".hero-nav"); // il menu mobile
-  const logo = document.querySelector(".hero-logo"); // il logo che apre il menu
+// --- MENU MOBILE: toggle su click logo, chiusura su tap fuori + scroll/touch ---
+(function(){
+  const nav  = document.querySelector('.hero-nav');
+  const logo = document.querySelector('.hero-logo');
 
-  // Se il menu è aperto e si clicca fuori dal logo o dal menu → chiudi
-  if (nav.classList.contains("open") && !nav.contains(e.target) && !logo.contains(e.target)) {
-    nav.classList.remove("open");
-  }
-});
+  if (!nav || !logo) return;
+
+  function openNav(){ nav.classList.add('open'); }
+  function closeNav(){ nav.classList.remove('open'); }
+  function toggleNav(e){ e.preventDefault(); nav.classList.toggle('open'); }
+
+  // Apri/chiudi col logo
+  logo.addEventListener('click', toggleNav);
+
+  // Chiudi toccando fuori dal menu (ma non se tocchi il logo)
+  document.addEventListener('click', (e) => {
+    if (!nav.classList.contains('open')) return;
+    if (nav.contains(e.target) || logo.contains(e.target)) return;
+    closeNav();
+  }, {passive:true});
+
+  // Chiudi anche quando l’utente muove/scrolla la pagina
+  const closeOnMove = () => { if (nav.classList.contains('open')) closeNav(); };
+  window.addEventListener('scroll',     closeOnMove, {passive:true});
+  window.addEventListener('touchstart', closeOnMove, {passive:true});
+  window.addEventListener('touchmove',  closeOnMove, {passive:true});
+  window.addEventListener('wheel',      closeOnMove, {passive:true});
+})();
 </script>
 
-<script>
-// Chiudi il menu mobile se si scrolla
-let lastScrollY = window.scrollY;
-
-window.addEventListener("scroll", () => {
-  const nav = document.querySelector(".hero-nav");
-  const logo = document.querySelector(".hero-logo");
-
-  // Se il menu è aperto e l'utente scorre, chiudi
-  if (nav.classList.contains("open")) {
-    nav.classList.remove("open");
-  }
-
-  lastScrollY = window.scrollY;
-});
-</script>
     
 </body>
 </html>
