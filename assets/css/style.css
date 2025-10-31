@@ -669,8 +669,7 @@ body.is-scrolled .hero-nav {
 }
 
 body {
-  background: #000; /* oppure un colore neutro se serve, per sicurezza */
-}
+ 
 /* ===== GALLERIA – stile nuovo ===== */
 .gallery-section{
   background: var(--bg);                  /* beige */
