@@ -853,8 +853,13 @@ footer {
 }
 .hero-slider .hero-sub{
   font-family: "Cormorant Garamond", serif;
-  font-size: 28px;
+  font-size: 36px;              /* ingrandito */
+  margin-top: 20px;             /* un po’ di spazio sotto il titolo */
+  display: block;
+  text-align: center;           /* centrato perfettamente */
+  letter-spacing: 0.5px;
 }
+
 
 /* freccia giù */
 .hero-slider .hero-scroll{
