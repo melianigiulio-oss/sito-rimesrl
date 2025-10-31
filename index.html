@@ -166,6 +166,43 @@
       window.addEventListener('scroll', onScroll, { passive: true });
     })();
   </script>
+<script>
+  // Frecce per scroll orizzontale
+  (function(){
+    const track = document.getElementById('galleryTrack');
+    const prev = document.querySelector('.g-prev');
+    const next = document.querySelector('.g-next');
+    const STEP = 320; // px per click (card + gap)
+
+    prev.addEventListener('click', () => track.scrollBy({left: -STEP, behavior: 'smooth'}));
+    next.addEventListener('click', () => track.scrollBy({left:  STEP, behavior: 'smooth'}));
+  })();
+
+  // Lightbox click-to-zoom
+  (function(){
+    const box = document.getElementById('lightbox');
+    const img = document.getElementById('lightboxImg');
+    const close = box.querySelector('.lb-close');
+
+    document.querySelectorAll('.g-item').forEach(el => {
+      el.addEventListener('click', () => {
+        img.src = el.src;
+        img.alt = el.alt || '';
+        box.style.display = 'flex';
+        box.setAttribute('aria-hidden','false');
+      });
+    });
+
+    function hide(){
+      box.style.display = 'none';
+      box.setAttribute('aria-hidden','true');
+      img.src = '';
+    }
+    close.addEventListener('click', hide);
+    box.addEventListener('click', (e) => { if (e.target === box) hide(); });
+    window.addEventListener('keydown', (e) => { if (e.key === 'Escape') hide(); });
+  })();
+</script>
 
 </body>
 </html>
