@@ -657,3 +657,17 @@ body.is-scrolled .hero-nav {
   #sezioni .card__overlay p  { font-size: 16px; }
 }
 
+/* Elimina qualsiasi spazio o margine tra la hero e i quadrati */
+.hero {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+#sezioni {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+body {
+  background: #000; /* oppure un colore neutro se serve, per sicurezza */
+}
