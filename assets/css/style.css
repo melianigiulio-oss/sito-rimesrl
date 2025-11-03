@@ -283,15 +283,14 @@ footer {
 html {
   scroll-behavior: smooth;
 }
-
 /* =======================
    HEADER CENTRALE E MENU
 ======================= */
 
+/* Header fissato in cima */
 .hero-header {
   position: fixed;
-  top: 0;
-  left: 0;
+  inset: 0 0 auto 0;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -302,14 +301,14 @@ html {
   pointer-events: auto;
 }
 
-/* LOGO in alto, centrato */
+/* LOGO al centro in alto (desktop) */
 .hero-logo {
   position: fixed;
   top: 10px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 10000;
-  transition: all 0.35s ease;
+  transition: all .35s ease;
   pointer-events: auto;
 }
 .hero-logo img {
@@ -320,7 +319,7 @@ html {
 }
 .hero-logo:hover img { transform: scale(1.04); }
 
-/* Menu (invisibile finché non passi col mouse) */
+/* Barra menu: centrata sotto il logo quando sei in cima */
 .hero-nav {
   opacity: 0;
   transform: translateY(-8px);
@@ -330,24 +329,24 @@ html {
   justify-content: center;
   flex-wrap: wrap;
   gap: 24px;
-  margin-top: 210px;
-}
-body.is-scrolled .hero-nav {
-  justify-content: flex-start;
-  margin-left: 180px;
-  margin-top: 10px;   /* ⬅️ così resta vicino al logo in sticky */
+
+  /* posiziona la barra sotto il logo alto 200px */
+  position: fixed;
+  top: calc(10px + 200px + 10px); /* top del logo + altezza + respiro */
+  left: 50%;
+  transform: translate(-50%, -8px);
 }
 
-/* Mostra il menu al passaggio */
+/* Mostra la barra al passaggio (solo desktop) */
 .hero-header:hover .hero-nav,
 .hero-logo:hover ~ .hero-nav,
 .hero-nav:hover {
   opacity: 1;
-  transform: translateY(0);
+  transform: translate(-50%, 0);
   pointer-events: auto;
 }
 
-/* Link del menu */
+/* Link */
 .hero-nav a {
   color: #fff;
   text-decoration: none;
@@ -367,47 +366,83 @@ body.is-scrolled .hero-nav {
   background: rgba(0,0,0,0.32);
 }
 
-/* =========================
-   STATO SCROLLATO – LOGO E MENU STICKY
-========================= */
-
+/* ----- Stato scrollato (sticky a sinistra) ----- */
 body.is-scrolled .hero-logo {
-  left: 20px;
-  transform: translateX(0);
+  left: 20px;                 /* logo a sinistra */
+  transform: none;
 }
 body.is-scrolled .hero-logo img {
-  height: 108px;
+  height: 108px;              /* logo più piccolo */
 }
 
-body.is-scrolled .hero-header {
-  align-items: flex-start;
-  padding-left: 8px;
-}
-
+/* La barra si allinea accanto al logo, a sinistra */
 body.is-scrolled .hero-nav {
+  left: 0;                     /* niente centratura */
+  top: 18px;                   /* vicino al logo */
+  transform: none;
   justify-content: flex-start;
-  margin-left: 180px; /* regola 160–220px a piacere */
+  opacity: 0;                  /* di base nascosta, appare con hover desktop */
+  pointer-events: none;
+  margin-left: calc(20px + 108px + 18px); /* bordo sinistro + larghezza logo + spazio */
 }
 
-/* --------- MOBILE --------- */
-@media (max-width: 720px) {
-  .hero-logo img { height: 64px; }
-  body.is-scrolled .hero-nav { margin-left: 100px; }
-  .hero-nav { gap: 12px; }
-  .hero-nav a { font-size: 18px; padding: 6px 12px; }
+/* Desktop: mostra la barra con hover anche in sticky */
+body.is-scrolled .hero-header:hover .hero-nav,
+body.is-scrolled .hero-logo:hover ~ .hero-nav,
+body.is-scrolled .hero-nav:hover {
+  opacity: 1;
+  pointer-events: auto;
 }
-/* ===== Versione mobile: ingrandisci logo in cima ===== */
-@media (max-width: 720px) {
-  .hero-logo img {
-    height: 90px !important;   /* aumenta la dimensione del logo quando sei in cima */
-    transition: height 0.3s ease;
+
+/* Sicurezza: il logo è sempre cliccabile sopra a tutto */
+.hero-logo { pointer-events: auto; z-index: 10000; position: relative; }
+
+/* Nessuna banda tra slider e quadrati */
+.hero-slider + section { margin-top: 0 !important; padding-top: 0 !important; }
+
+/* ========= Mobile (≤ 820px) ========= */
+@media (max-width: 820px){
+  /* Logo: grande in cima, piccolo in sticky */
+  .hero-logo img{
+    height: 90px !important;
+    transition: height .3s ease;
   }
-}
+  body.is-scrolled .hero-logo img{
+    height: 55px !important;
+  }
 
-/* ===== Logo più piccolo dopo lo scroll ===== */
-@media (max-width: 720px) {
-  body.is-scrolled .hero-logo img {
-    height: 55px !important;   /* ridotto quando scorri in basso */
+  /* Menu mobile: NON si apre con hover, solo con .open aggiunta via JS */
+  .hero-nav{
+    gap: 16px;
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, -8px);
+  }
+  .hero-header:hover .hero-nav,
+  .hero-logo:hover ~ .hero-nav,
+  .hero-nav:hover{
+    opacity: 0 !important;
+    pointer-events: none !important;
+    transform: translate(-50%, -8px) !important;
+  }
+  .hero-nav.open{
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    transform: translate(-50%, 0) !important;
+  }
+
+  /* Quando sticky, barra a destra del logo */
+  body.is-scrolled .hero-nav{
+    left: auto;
+    right: 12px;
+    top: 14px;
+    margin-left: 0;
+    transform: translate(0, -8px);
+  }
+  body.is-scrolled .hero-nav.open{
+    transform: translate(0, 0) !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
   }
 }
 
