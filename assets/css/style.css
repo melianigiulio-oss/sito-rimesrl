@@ -516,85 +516,7 @@ body.is-scrolled .hero-nav {
   transform: translateY(-2px);
 }
 
-/* ====== QUADRI FULL SCREEN (2x2) ====== */
-#sezioni.cards-big, /* compat con vecchio nome, se c’è */
-#sezioni {
-  width: 100%;
-  height: 100vh;             /* occupa l’intero schermo */
-  margin: 0;
-  padding: 0;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr; /* 4 quadranti uguali */
-  gap: 0;                      /* nessuno spazio */
-}
 
-/* Card base */
-#sezioni .card {
-  position: relative;
-  display: flex;
-  align-items: center;         /* centra verticalmente il testo */
-  justify-content: center;     /* centra orizzontalmente il testo */
-  text-align: center;
-  color: #fff;
-  overflow: hidden;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-/* Velo per leggibilità del testo */
-#sezioni .card::before {
-  content: "";
-  position: absolute; inset: 0;
-  background: linear-gradient(180deg, rgba(0,0,0,.30) 0%, rgba(0,0,0,.45) 100%);
-}
-
-/* Contenuto centrato sopra il velo */
-#sezioni .card__overlay {
-  position: relative;
-  z-index: 1;
-  padding: 24px;
-  max-width: 640px;
-}
-
-#sezioni .card__overlay h3 {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 42px;
-  line-height: 1.1;
-  margin: 0 0 10px 0;
-  letter-spacing: .5px;
-  text-transform: none;
-}
-
-#sezioni .card__overlay p {
-  font-family: "Inter", sans-serif;
-  font-size: 18px;
-  line-height: 1.6;
-  margin: 0;
-  color: #f3f3f3;
-}
-
-/* Hover leggero */
-#sezioni .card:hover { transform: scale(1.01); }
-#sezioni .card { transition: transform .35s ease; }
-
-/* Immagini di sfondo – mettile nella stessa cartella del CSS */
-#sezioni .card--storia   { background-image: url('storia.jpg'); }
-#sezioni .card--visione  { background-image: url('visione.jpg'); }
-#sezioni .card--identita { background-image: url('identita.jpg'); }
-#sezioni .card--prodotti { background-image: url('prodotti.jpg'); }
-
-/* Mobile: una colonna, 4 righe */
-@media (max-width: 880px){
-  #sezioni {
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(4, 25vh); /* 4 blocchi compatti */
-    height: auto;                         /* lascia scorrere */
-  }
-  #sezioni .card__overlay h3 { font-size: 28px; }
-  #sezioni .card__overlay p  { font-size: 16px; }
-}
 /* ===== QUADRI FULL SCREEN 2x2 ===== */
 #sezioni.cards-full,
 #sezioni {
@@ -915,24 +837,6 @@ section.hero-slider{
   margin-top: 0 !important;
   padding-top: 0 !important;
 }
-/* --- MOBILE: il menu si apre SOLO con la classe .open, niente :hover --- */
-@media (max-width: 720px){
-  /* stato base: chiuso */
-  .hero-nav{
-    opacity: 0;
-    pointer-events: none;
-    transform: translateY(-8px);
-    transition: opacity .25s ease, transform .25s ease;
-  }
-
-  /* disattiva qualsiasi apertura via hover */
-  .hero-header:hover .hero-nav,
-  .hero-logo:hover ~ .hero-nav,
-  .hero-nav:hover{
-    opacity: 0 !important;
-    pointer-events: none !important;
-    transform: translateY(-8px) !important;
-  }
 
   /* unico stato aperto su mobile */
   .hero-nav.open{
@@ -941,3 +845,62 @@ section.hero-slider{
     transform: translateY(0) !important;
   }
 }
+
+/* =========================
+   MOBILE (≤ 820px)
+========================= */
+@media (max-width: 820px){
+
+  /* Logo: grande in cima, piccolo in sticky */
+  .hero-logo img{
+    height: 90px !important;
+    transition: height .3s ease;
+  }
+  body.is-scrolled .hero-logo img{
+    height: 55px !important;
+  }
+
+  /* Menu: si apre SOLO con .open (niente hover su mobile) */
+  .hero-nav{
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-8px);
+    transition: opacity .25s ease, transform .25s ease;
+    gap: 16px;
+  }
+  .hero-header:hover .hero-nav,
+  .hero-logo:hover ~ .hero-nav,
+  .hero-nav:hover{
+    opacity: 0 !important;
+    pointer-events: none !important;
+    transform: translateY(-8px) !important;
+  }
+  .hero-nav.open{
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    transform: translateY(0) !important;
+  }
+
+  /* Allineamento menu quando sticky (accanto al logo a sx) */
+  body.is-scrolled .hero-nav{ margin-left: 100px; }
+
+  /* Quadri 2x2 diventano lista verticale */
+  #sezioni{
+    height: auto;
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+  }
+  #sezioni .card{ min-height: 28vh; }
+  #sezioni .card__overlay h3{ font-size: 28px; }
+  #sezioni .card__overlay p { font-size: 16px; }
+
+  /* Galleria: dimensioni più contenute su mobile (opzionale) */
+  .g-item{ width: 280px; height: 280px; }
+}
+
+/* Sicurezza: il logo è sempre cliccabile sopra a tutto */
+.hero-logo{ pointer-events: auto; z-index: 10000; position: relative; }
+
+/* Nessuna banda tra slider e quadrati */
+.hero-slider + section{ margin-top: 0 !important; padding-top: 0 !important; }
+
