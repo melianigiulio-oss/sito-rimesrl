@@ -388,7 +388,7 @@ body.is-scrolled .hero-nav {
   justify-content: flex-start;
   opacity: 0;
   pointer-events: none;
-  margin-left: calc(20px + 108px + 18px); /* bordo + larghezza logo + spazio */
+  margin-left: 220px;
 }
 
 /* Desktop: mostra la barra con hover anche in sticky */
