@@ -22,6 +22,10 @@ html, body {
   font-size: 18px;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 /* ----- Contenitori principali ----- */
 .container {
   max-width: var(--max-width);
@@ -280,10 +284,6 @@ footer {
   .hero__subtitle{ font-size: 16px; }
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
 /* =======================
    HEADER CENTRALE E MENU
 ======================= */
@@ -317,7 +317,9 @@ html {
 .hero-logo img {
   height: 200px;
   width: auto;
-  filter: brightness(1000%) drop-shadow(0 0 6px rgba(255,255,255,.3));
+  display: block;
+  /* niente filtro estremo, mostra i colori reali del logo */
+  filter: none;
   transition: all 0.35s ease;
 }
 
@@ -398,7 +400,7 @@ body.is-scrolled .hero-nav:hover {
 }
 
 /* Sicurezza: il logo è sempre cliccabile sopra a tutto */
-.hero-logo { 
+.hero-logo{ 
   pointer-events: auto; 
   z-index: 10000; 
 }
@@ -557,7 +559,6 @@ body.is-scrolled .hero-nav:hover {
   background: rgba(0,0,0,.32);
   transform: translateY(-2px);
 }
-
 
 /* ===== QUADRI FULL SCREEN 2x2 ===== */
 #sezioni.cards-full,
@@ -876,3 +877,4 @@ section.hero-slider{
   margin-top: 0 !important;
   padding-top: 0 !important;
 }
+
