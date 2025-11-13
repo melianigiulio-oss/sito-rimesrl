@@ -3,8 +3,8 @@
 
 :root {
   --bg: #cbb89d;        /* beige scuro */
-  --text: #ffffff;       /* testo bianco */
-  --accent: #bfa77f;     /* oro tenue */
+  --text: #ffffff;      /* testo bianco */
+  --accent: #bfa77f;    /* oro tenue */
   --max-width: 980px;
 }
 
@@ -59,7 +59,7 @@ p {
   text-align: justify;
 }
 
-/* ----- Navigazione ----- */
+/* ----- Navigazione CLASSICA (non hero) ----- */
 nav {
   display: flex;
   justify-content: center;
@@ -82,7 +82,7 @@ nav a:hover {
   transform: scale(1.05);
 }
 
-/* ----- Galleria ----- */
+/* ----- Galleria semplice ----- */
 .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
@@ -112,7 +112,6 @@ footer {
   border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-
 /* ------------------------------
    FINESTRA DI VERIFICA ETÀ
 ------------------------------ */
@@ -140,12 +139,12 @@ footer {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 70vw;           /* grandezza proporzionale alla finestra */
-  max-width: 800px;      /* limite massimo */
+  width: 70vw;
+  max-width: 800px;
   transform: translate(-50%, -50%);
-  opacity: 0.12;         /* più trasparente */
+  opacity: 0.12;
   filter: invert(1) brightness(1.1);
-  pointer-events: none;  /* non interferisce con i click */
+  pointer-events: none;
   z-index: 1;
 }
 
@@ -200,7 +199,7 @@ footer {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* HERO centrata e testi grandi */
+/* ===== HERO (immagine singola) ===== */
 .hero {
   position: relative;
   min-height: 100vh;
@@ -211,8 +210,9 @@ footer {
   justify-content: center;
   text-align: center;
   color: #fff;
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
 }
-
 
 /* attenuatore sopra l'immagine */
 .hero__shade{
@@ -252,8 +252,6 @@ footer {
   text-shadow: 0 2px 6px rgba(0,0,0,0.25);
 }
 
-
-
 /* freccia “scorri” */
 .hero__scroll{
   position: absolute;
@@ -266,12 +264,13 @@ footer {
   z-index: 2;
   animation: pulse 1.8s ease-in-out infinite;
 }
+
 @keyframes pulse{
   0%,100%{ transform: translate(-50%,0); opacity:.9; }
   50%{ transform: translate(-50%,8px); opacity:.6; }
 }
 
-/* Responsive */
+/* Responsive hero semplice */
 @media (max-width: 880px){
   .hero h1{ font-size: 40px; }
   .hero__subtitle{ font-size: 18px; }
@@ -280,9 +279,11 @@ footer {
   .hero h1{ font-size: 32px; }
   .hero__subtitle{ font-size: 16px; }
 }
+
 html {
   scroll-behavior: smooth;
 }
+
 /* =======================
    HEADER CENTRALE E MENU
 ======================= */
@@ -290,7 +291,8 @@ html {
 /* Header fissato in cima */
 .hero-header {
   position: fixed;
-  inset: 0 0 auto 0;
+  top: 0;
+  left: 0;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -301,7 +303,7 @@ html {
   pointer-events: auto;
 }
 
-/* LOGO al centro in alto (desktop) */
+/* LOGO al centro in alto (default) */
 .hero-logo {
   position: fixed;
   top: 10px;
@@ -311,30 +313,31 @@ html {
   transition: all .35s ease;
   pointer-events: auto;
 }
+
 .hero-logo img {
   height: 200px;
   width: auto;
   filter: brightness(1000%) drop-shadow(0 0 6px rgba(255,255,255,.3));
   transition: all 0.35s ease;
 }
-.hero-logo:hover img { transform: scale(1.04); }
+
+.hero-logo:hover img { 
+  transform: scale(1.04); 
+}
 
 /* Barra menu: centrata sotto il logo quando sei in cima */
 .hero-nav {
+  position: fixed;
+  top: calc(10px + 200px + 10px); /* top logo + altezza + respiro */
+  left: 50%;
+  transform: translate(-50%, -8px);
   opacity: 0;
-  transform: translateY(-8px);
   pointer-events: none;
   transition: opacity 0.35s ease, transform 0.35s ease;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 24px;
-
-  /* posiziona la barra sotto il logo alto 200px */
-  position: fixed;
-  top: calc(10px + 200px + 10px); /* top del logo + altezza + respiro */
-  left: 50%;
-  transform: translate(-50%, -8px);
 }
 
 /* Mostra la barra al passaggio (solo desktop) */
@@ -346,7 +349,7 @@ html {
   pointer-events: auto;
 }
 
-/* Link */
+/* Link menu hero */
 .hero-nav a {
   color: #fff;
   text-decoration: none;
@@ -368,22 +371,22 @@ html {
 
 /* ----- Stato scrollato (sticky a sinistra) ----- */
 body.is-scrolled .hero-logo {
-  left: 20px;                 /* logo a sinistra */
+  left: 20px;
   transform: none;
 }
 body.is-scrolled .hero-logo img {
-  height: 108px;              /* logo più piccolo */
+  height: 108px;
 }
 
-/* La barra si allinea accanto al logo, a sinistra */
+/* La barra si allinea accanto al logo, verso sinistra */
 body.is-scrolled .hero-nav {
-  left: 0;                     /* niente centratura */
-  top: 18px;                   /* vicino al logo */
+  left: 0;
+  top: 18px;
   transform: none;
   justify-content: flex-start;
-  opacity: 0;                  /* di base nascosta, appare con hover desktop */
+  opacity: 0;
   pointer-events: none;
-  margin-left: calc(20px + 108px + 18px); /* bordo sinistro + larghezza logo + spazio */
+  margin-left: calc(20px + 108px + 18px); /* bordo + larghezza logo + spazio */
 }
 
 /* Desktop: mostra la barra con hover anche in sticky */
@@ -395,13 +398,14 @@ body.is-scrolled .hero-nav:hover {
 }
 
 /* Sicurezza: il logo è sempre cliccabile sopra a tutto */
-.hero-logo { pointer-events: auto; z-index: 10000; position: relative; }
-
-/* Nessuna banda tra slider e quadrati */
-.hero-slider + section { margin-top: 0 !important; padding-top: 0 !important; }
+.hero-logo { 
+  pointer-events: auto; 
+  z-index: 10000; 
+}
 
 /* ========= Mobile (≤ 820px) ========= */
 @media (max-width: 820px){
+
   /* Logo: grande in cima, piccolo in sticky */
   .hero-logo img{
     height: 90px !important;
@@ -411,13 +415,16 @@ body.is-scrolled .hero-nav:hover {
     height: 55px !important;
   }
 
-  /* Menu mobile: NON si apre con hover, solo con .open aggiunta via JS */
+  /* Menu mobile: NON si apre con hover, solo con .open via JS */
   .hero-nav{
     gap: 16px;
     opacity: 0;
     pointer-events: none;
     transform: translate(-50%, -8px);
+    transition: opacity .25s ease, transform .25s ease;
   }
+
+  /* disattiva l’hover su mobile */
   .hero-header:hover .hero-nav,
   .hero-logo:hover ~ .hero-nav,
   .hero-nav:hover{
@@ -425,13 +432,15 @@ body.is-scrolled .hero-nav:hover {
     pointer-events: none !important;
     transform: translate(-50%, -8px) !important;
   }
+
+  /* unico stato aperto su mobile: .hero-nav.open */
   .hero-nav.open{
     opacity: 1 !important;
     pointer-events: auto !important;
     transform: translate(-50%, 0) !important;
   }
 
-  /* Quando sticky, barra a destra del logo */
+  /* Allineamento menu quando sticky (accanto al logo a sx) */
   body.is-scrolled .hero-nav{
     left: auto;
     right: 12px;
@@ -445,7 +454,6 @@ body.is-scrolled .hero-nav:hover {
     pointer-events: auto !important;
   }
 }
-
 
 /* ====== 4 QUADRI ====== */
 .cards {
@@ -489,7 +497,6 @@ body.is-scrolled .hero-nav:hover {
 }
 
 /* ====== BANNER DIVISORE ====== */
-/* Cambia l'immagine se vuoi: */
 .divider-banner {
   position: relative;
   min-height: 42vh;
@@ -502,7 +509,7 @@ body.is-scrolled .hero-nav:hover {
   background: linear-gradient(180deg, rgba(0,0,0,.25), rgba(0,0,0,.25));
 }
 
-/* ====== GALLERIA ORIZZONTALE ====== */
+/* ====== GALLERIA ORIZZONTALE (vecchio stile) ====== */
 .hscroll {
   display: flex;
   gap: 14px;
@@ -557,16 +564,16 @@ body.is-scrolled .hero-nav:hover {
 #sezioni {
   position: relative;
   width: 100vw;
-  height: 100vh;                 /* tutta l’altezza visibile */
+  height: 100vh;
   margin: 0;
   padding: 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  gap: 0;                        /* niente spazi */
+  gap: 0;
 }
 
-/* ogni riquadro riempie la sua cella, senza bordi/arrotondamenti */
+/* ogni riquadro riempie la sua cella */
 #sezioni .card {
   display: block;
   position: relative;
@@ -580,21 +587,21 @@ body.is-scrolled .hero-nav:hover {
   cursor: pointer;
 }
 
-/* sfondo per ciascun riquadro (le immagini sono in assets/css/) */
+/* sfondo per ciascun riquadro */
 #sezioni .card--storia   { background-image: url('../css/storia.jpg'); }
 #sezioni .card--visione  { background-image: url('../css/visione.jpg'); }
 #sezioni .card--identita { background-image: url('../css/identita.jpg'); }
 #sezioni .card--prodotti { background-image: url('../css/prodotti.jpg'); }
 
-/* velo scuro per leggibilità – non deve bloccare i click */
+/* velo scuro per leggibilità */
 #sezioni .card::before {
   content: "";
   position: absolute; inset: 0;
   background: linear-gradient(180deg, rgba(0,0,0,.28) 0%, rgba(0,0,0,.45) 100%);
-  pointer-events: none;          /* <<< importante per rendere cliccabile */
+  pointer-events: none;
 }
 
-/* testo centrato perfettamente */
+/* testo centrato */
 #sezioni .card__overlay {
   position: absolute; inset: 0;
   display: flex; flex-direction: column;
@@ -630,22 +637,19 @@ body.is-scrolled .hero-nav:hover {
   #sezioni .card__overlay p  { font-size: 16px; }
 }
 
-/* Elimina qualsiasi spazio o margine tra la hero e i quadrati */
+/* Elimina ogni spazio tra la hero e i quadrati */
 .hero {
   margin-bottom: 0 !important;
   padding-bottom: 0 !important;
 }
-
 #sezioni {
   margin-top: 0 !important;
   padding-top: 0 !important;
 }
 
-
- 
 /* ===== GALLERIA – stile nuovo ===== */
 .gallery-section{
-  background: var(--bg);                  /* beige */
+  background: var(--bg);
   padding: 60px 0;
 }
 
@@ -657,20 +661,20 @@ body.is-scrolled .hero-nav:hover {
   gap: 12px;
 }
 
-/* Traccia orizzontale */
-.hscroll{
+/* Traccia orizzontale nuova */
+.gallery-section .hscroll{
   display: flex;
   gap: 18px;
   overflow-x: auto;
   scroll-behavior: smooth;
   padding: 12px 4px;
 }
-.hscroll::-webkit-scrollbar{ display:none; }  /* nasconde barra */
-.hscroll{ scrollbar-width:none; }            /* Firefox */
+.gallery-section .hscroll::-webkit-scrollbar{ display:none; }
+.gallery-section .hscroll{ scrollbar-width:none; }
 
 /* Card immagine più grandi */
 .g-item{
-  width: 500px;            /* ↑ aumenta se vuoi ancora più grandi */
+  width: 500px;
   height: 500px;
   object-fit: cover;
   border-radius: 14px;
@@ -720,7 +724,7 @@ body.is-scrolled .hero-nav:hover {
   color:#fff; font-size: 24px; line-height: 0; cursor: pointer;
 }
 
-/* Mobile piccoli */
+/* Mobile piccoli per galleria */
 @media (max-width: 720px){
   .g-item{ width: 220px; height: 220px; }
 }
@@ -735,7 +739,8 @@ body.is-scrolled .hero-nav:hover {
   margin-top: 0 !important;
   padding-top: 0 !important;
 }
-/* Elimina ogni spazio tra la sezione cards e la galleria */
+
+/* Elimina ogni spazio tra sezione cards e galleria */
 .cards,
 .cards-section,
 .cards.cards-big,
@@ -752,45 +757,42 @@ section + section {
   margin-top: 0 !important;
   padding-top: 0 !important;
 }
-/* --- Avvicina i 4 riquadri (sezione #sezioni) alla galleria (#galleria) --- */
 
-/* 1) niente spazio alla fine dei riquadri */
+/* Avvicina #sezioni alla galleria */
 #sezioni { 
   margin-bottom: 0 !important;
 }
 #sezioni .container { 
   padding-bottom: 0 !important;
 }
-
-/* 2) niente spazio all'inizio della galleria */
 #sezioni + #galleria {
   margin-top: 0 !important;
   padding-top: 0 !important;
 }
-/* 2a) la container della galleria non aggiunge padding alto */
 #sezioni + #galleria .container {
   padding-top: 0 !important;
 }
-/* 2b) il titolo “Galleria” non spinge in basso */
 #sezioni + #galleria h2 {
   margin-top: 8px !important;
 }
 
-/* 3) assicurati che fondo/contatti siano beige, non neri */
+/* Beige di fondo ovunque */
 #sezioni, 
 #galleria,
 #contatti,
 .contacts, 
 footer {
-  background: var(--bg) !important;  /* beige */
+  background: var(--bg) !important;
   color: var(--text);
 }
 
 /* ===== HERO SLIDER ===== */
 .hero-slider{
   position: relative;
-  min-height: 92vh;              /* altezza copertina */
+  min-height: 92vh;
   overflow: hidden;
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
 }
 
 /* singola slide */
@@ -809,7 +811,7 @@ footer {
   position: absolute;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%);  /* centra perfettamente il testo */
+  transform: translate(-50%, -50%);
   width: min(92vw, 1100px);
   text-align: center;
   color: #fff;
@@ -824,17 +826,17 @@ footer {
   letter-spacing: 1px;
   margin-bottom: 14px;
 }
+
 .hero-slider .hero-sub{
   font-family: "Cormorant Garamond", serif;
-  font-size: 36px;              /* ingrandito */
-  margin-top: 20px;             /* un po’ di spazio sotto il titolo */
+  font-size: 36px;
+  margin-top: 20px;
   display: block;
-  text-align: center;           /* centrato perfettamente */
+  text-align: center;
   letter-spacing: 0.5px;
 }
 
-
-/* freccia giù */
+/* freccia giù slider */
 .hero-slider .hero-scroll{
   position: absolute;
   left: 50%;
@@ -846,7 +848,7 @@ footer {
   animation: pulse 1.8s ease-in-out infinite;
 }
 
-/* responsive */
+/* responsive slider */
 @media (max-width: 880px){
   .hero-slider{ min-height: 70vh; }
   .hero-slider .hero-txt h1{ font-size: 40px; }
@@ -857,6 +859,7 @@ footer {
   .hero-slider .hero-txt h1{ font-size: 32px; }
   .hero-slider .hero-sub{ font-size: 16px; }
 }
+
 /* niente spazio tra slider e quadrati */
 section.hero-slider{ 
   margin-bottom: 0 !important; 
@@ -867,75 +870,9 @@ section.hero-slider{
   padding-top: 0 !important;
 }
 
-/* se c'è una sezione subito dopo la hero, azzera comunque */
-.hero-slider + section{
+/* se c'è una sezione subito dopo la hero/slider, azzera comunque */
+.hero-slider + section,
+.hero + section {
   margin-top: 0 !important;
   padding-top: 0 !important;
 }
-
-  /* unico stato aperto su mobile */
-  .hero-nav.open{
-    opacity: 1 !important;
-    pointer-events: auto !important;
-    transform: translateY(0) !important;
-  }
-}
-
-/* =========================
-   MOBILE (≤ 820px)
-========================= */
-@media (max-width: 820px){
-
-  /* Logo: grande in cima, piccolo in sticky */
-  .hero-logo img{
-    height: 90px !important;
-    transition: height .3s ease;
-  }
-  body.is-scrolled .hero-logo img{
-    height: 55px !important;
-  }
-
-  /* Menu: si apre SOLO con .open (niente hover su mobile) */
-  .hero-nav{
-    opacity: 0;
-    pointer-events: none;
-    transform: translateY(-8px);
-    transition: opacity .25s ease, transform .25s ease;
-    gap: 16px;
-  }
-  .hero-header:hover .hero-nav,
-  .hero-logo:hover ~ .hero-nav,
-  .hero-nav:hover{
-    opacity: 0 !important;
-    pointer-events: none !important;
-    transform: translateY(-8px) !important;
-  }
-  .hero-nav.open{
-    opacity: 1 !important;
-    pointer-events: auto !important;
-    transform: translateY(0) !important;
-  }
-
-  /* Allineamento menu quando sticky (accanto al logo a sx) */
-  body.is-scrolled .hero-nav{ margin-left: 100px; }
-
-  /* Quadri 2x2 diventano lista verticale */
-  #sezioni{
-    height: auto;
-    grid-template-columns: 1fr;
-    grid-template-rows: none;
-  }
-  #sezioni .card{ min-height: 28vh; }
-  #sezioni .card__overlay h3{ font-size: 28px; }
-  #sezioni .card__overlay p { font-size: 16px; }
-
-  /* Galleria: dimensioni più contenute su mobile (opzionale) */
-  .g-item{ width: 280px; height: 280px; }
-}
-
-/* Sicurezza: il logo è sempre cliccabile sopra a tutto */
-.hero-logo{ pointer-events: auto; z-index: 10000; position: relative; }
-
-/* Nessuna banda tra slider e quadrati */
-.hero-slider + section{ margin-top: 0 !important; padding-top: 0 !important; }
-
