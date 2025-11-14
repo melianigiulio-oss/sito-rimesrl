@@ -376,7 +376,7 @@ body.is-scrolled .hero-nav {
   justify-content: flex-start;
   opacity: 0;
   pointer-events: none;
-  margin-left: calc(20px + 108px + 18px);
+  margin-left: 530px;
 }
 
 @media (min-width: 821px){
@@ -435,9 +435,9 @@ body.is-scrolled .hero-nav {
   /* Quando scrolli: menu a destra del logo */
   body.is-scrolled .hero-nav{
     top: 14px;
-    left: auto;
-    right: 12px;
-    transform: translate(0, -8px);
+    left: 90px;
+    right: auto;
+    transform: none;
     margin-left: 0 !important;
   }
   body.is-scrolled .hero-nav.open{
@@ -658,8 +658,8 @@ body.is-scrolled .hero-nav {
 
 /* quadrati galleria più grandi su desktop */
 .g-item{
-  width: 600px;
-  height: 600px;
+  width: 900px;
+  height: 900px;
   object-fit: cover;
   border-radius: 14px;
   flex: 0 0 auto;
