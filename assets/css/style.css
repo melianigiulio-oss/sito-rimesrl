@@ -441,6 +441,11 @@ body.is-scrolled .hero-nav:hover {
     pointer-events: auto !important;
     transform: translate(-50%, 0) !important;
   }
+  @media (max-width: 720px) {
+  .hero-nav.open {
+    margin-left: 20px !important;
+  }
+}
 
   /* Allineamento menu quando sticky (accanto al logo a sx) */
   body.is-scrolled .hero-nav{
