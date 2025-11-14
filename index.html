@@ -219,35 +219,39 @@
   <script>
   (function(){
     const nav  = document.querySelector('.hero-nav');
-    const logo = document.querySelector('.hero-logo'); // è già un <a>
+    const logo = document.querySelector('.hero-logo'); // logo in alto
     if (!nav || !logo) return;
 
     const isMobile = () => window.innerWidth <= 820;
     let justOpenedAt = 0;
 
     function toggleMenu(e){
-      if (!isMobile()) return;            // desktop: il link "#home" funziona
-      e.preventDefault();                  // blocca solo su mobile
+      if (!isMobile()) return;            // desktop: non tocca il menu
+      e.preventDefault();                 // blocca solo su mobile
+      e.stopPropagation();                // il click NON arriva al document
+
       const willOpen = !nav.classList.contains('open');
       nav.classList.toggle('open');
       if (willOpen) justOpenedAt = Date.now();
     }
-    function closeMenu(){ nav.classList.remove('open'); }
 
-   // Apri/chiudi col logo (mobile)
-logo.addEventListener('click', toggleMenu);
-logo.addEventListener('touchstart', toggleMenu, { passive: false });
+    function closeMenu(){
+      nav.classList.remove('open');
+    }
 
+    // 👉 Apri/chiudi col logo (mobile)
+    logo.addEventListener('click', toggleMenu);
+    logo.addEventListener('touchstart', toggleMenu, { passive: false });
 
-    // Chiudi cliccando fuori
+    // Chiudi cliccando fuori dal menu e dal logo
     document.addEventListener('click', (e) => {
       if (!nav.classList.contains('open')) return;
       if (Date.now() - justOpenedAt < 150) return;
       if (nav.contains(e.target) || logo.contains(e.target)) return;
       closeMenu();
-    }, {passive:true});
+    }, { passive:true });
 
-    // Chiudi se scrolli o trascini
+    // Chiudi se scrolli
     let lastY = window.pageYOffset;
     window.addEventListener('scroll', () => {
       if (!nav.classList.contains('open')) return;
@@ -257,13 +261,18 @@ logo.addEventListener('touchstart', toggleMenu, { passive: false });
       lastY = y;
     }, { passive: true });
 
+    // Chiudi se trascini (touchmove)
     window.addEventListener('touchmove', () => {
-      if (nav.classList.contains('open') && Date.now() - justOpenedAt >= 150) closeMenu();
+      if (nav.classList.contains('open') && Date.now() - justOpenedAt >= 150) {
+        closeMenu();
+      }
     }, { passive: true });
 
     // BONUS: clic su una voce del menu → chiudi su mobile
-    document.querySelectorAll('.hero-nav a').forEach(a=>{
-      a.addEventListener('click', ()=>{ if (isMobile()) closeMenu(); });
+    document.querySelectorAll('.hero-nav a').forEach(a => {
+      a.addEventListener('click', () => {
+        if (isMobile()) closeMenu();
+      });
     });
   })();
   </script>
