@@ -234,8 +234,10 @@
     }
     function closeMenu(){ nav.classList.remove('open'); }
 
-    // Apri/chiudi col logo
-    logo.addEventListener('click', toggleMenu);
+   // Apri/chiudi col logo (mobile)
+logo.addEventListener('click', toggleMenu);
+logo.addEventListener('touchstart', toggleMenu, { passive: false });
+
 
     // Chiudi cliccando fuori
     document.addEventListener('click', (e) => {
