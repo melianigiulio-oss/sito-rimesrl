@@ -417,16 +417,19 @@ body.is-scrolled .hero-nav:hover {
     height: 55px !important;
   }
 
-  /* Menu mobile: NON si apre con hover, solo con .open via JS */
+  /* Menu mobile: nascosto di default */
   .hero-nav{
+    position: fixed;
+    top: 90px;                   /* distanza verticale dal logo */
+    left: 50%;
+    transform: translate(-50%, -8px);
     gap: 16px;
     opacity: 0;
     pointer-events: none;
-    transform: translate(-50%, -8px);
     transition: opacity .25s ease, transform .25s ease;
   }
 
-  /* disattiva l’hover su mobile */
+  /* Disattiva hover su mobile */
   .hero-header:hover .hero-nav,
   .hero-logo:hover ~ .hero-nav,
   .hero-nav:hover{
@@ -435,32 +438,34 @@ body.is-scrolled .hero-nav:hover {
     transform: translate(-50%, -8px) !important;
   }
 
-  /* unico stato aperto su mobile: .hero-nav.open */
+  /* Menu aperto tramite JS */
   .hero-nav.open{
     opacity: 1 !important;
     pointer-events: auto !important;
     transform: translate(-50%, 0) !important;
   }
-  @media (max-width: 720px) {
-  .hero-nav.open {
+
+  /* Extra: sposta leggermente la barra più a destra per evitare sovrapposizione col logo */
+  .hero-nav.open{
     margin-left: 20px !important;
+  }
+
+  /* Stato sticky (quando scrolli) */
+  body.is-scrolled .hero-nav{
+    top: 14px;
+    left: auto;
+    right: 12px;                 /* accanto al logo piccolo */
+    transform: translate(0, -8px);
+    margin-left: 0 !important;
+  }
+
+  body.is-scrolled .hero-nav.open{
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    transform: translate(0, 0) !important;
   }
 }
 
-  /* Allineamento menu quando sticky (accanto al logo a sx) */
-  body.is-scrolled .hero-nav{
-    left: auto;
-    right: 12px;
-    top: 14px;
-    margin-left: 0;
-    transform: translate(0, -8px);
-  }
-  body.is-scrolled .hero-nav.open{
-    transform: translate(0, 0) !important;
-    opacity: 1 !important;
-    pointer-events: auto !important;
-  }
-}
 
 /* ====== 4 QUADRI ====== */
 .cards {
