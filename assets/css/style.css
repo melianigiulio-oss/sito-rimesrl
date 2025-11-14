@@ -126,7 +126,7 @@ footer {
   left: 0;
   width: 100%;
   height: 100%;
-  background: #c1af8f; /* beige scuro elegante */
+  background: #c1af8f;
   display: none;
   align-items: center;
   justify-content: center;
@@ -138,7 +138,6 @@ footer {
   overflow: hidden;
 }
 
-/* Logo grande e trasparente sullo sfondo */
 .age-logo {
   position: absolute;
   top: 50%;
@@ -152,7 +151,6 @@ footer {
   z-index: 1;
 }
 
-/* Box con domanda */
 .age-box {
   background: rgba(255,255,255,0.08);
   border: 1px solid rgba(255,255,255,0.25);
@@ -164,7 +162,6 @@ footer {
   animation: fadeIn 1.2s ease;
 }
 
-/* Testo */
 .age-box h2 {
   font-size: 26px;
   line-height: 1.4;
@@ -172,7 +169,6 @@ footer {
   margin-bottom: 30px;
 }
 
-/* Pulsanti */
 .age-box .buttons {
   display: flex;
   justify-content: center;
@@ -197,7 +193,6 @@ footer {
   transform: scale(1.05);
 }
 
-/* Animazione di entrata */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
@@ -218,7 +213,6 @@ footer {
   padding-bottom: 0 !important;
 }
 
-/* attenuatore sopra l'immagine */
 .hero__shade{
   position: absolute;
   inset: 0;
@@ -226,7 +220,6 @@ footer {
   z-index: 1;
 }
 
-/* contenitore dei testi */
 .hero__content{
   position: relative;
   z-index: 2;
@@ -234,7 +227,6 @@ footer {
   text-align: center;
 }
 
-/* titolo grande ed elegante */
 .hero h1{
   font-family: "Cormorant Garamond", serif;
   font-size: 90px;
@@ -245,7 +237,6 @@ footer {
   text-shadow: 0 2px 10px rgba(0,0,0,0.35);
 }
 
-/* sottotitolo centrato e più grande */
 .hero__subtitle{
   font-family: "Cormorant Garamond", serif;
   font-size: 36px;
@@ -256,7 +247,6 @@ footer {
   text-shadow: 0 2px 6px rgba(0,0,0,0.25);
 }
 
-/* freccia “scorri” */
 .hero__scroll{
   position: absolute;
   left: 50%;
@@ -274,7 +264,6 @@ footer {
   50%{ transform: translate(-50%,8px); opacity:.6; }
 }
 
-/* Responsive hero semplice */
 @media (max-width: 880px){
   .hero h1{ font-size: 40px; }
   .hero__subtitle{ font-size: 18px; }
@@ -288,7 +277,6 @@ footer {
    HEADER CENTRALE E MENU
 ======================= */
 
-/* Header fissato in cima */
 .hero-header {
   position: fixed;
   top: 0;
@@ -303,7 +291,7 @@ footer {
   pointer-events: auto;
 }
 
-/* LOGO al centro in alto (default) */
+/* LOGO centro in alto */
 .hero-logo {
   position: fixed;
   top: 10px;
@@ -318,7 +306,6 @@ footer {
   height: 200px;
   width: auto;
   display: block;
-  /* niente filtro estremo, mostra i colori reali del logo */
   filter: none;
   transition: all 0.35s ease;
 }
@@ -327,10 +314,10 @@ footer {
   transform: scale(1.04); 
 }
 
-/* Barra menu: centrata sotto il logo quando sei in cima */
+/* Barra menu: centrata sotto il logo (desktop) */
 .hero-nav {
   position: fixed;
-  top: calc(10px + 200px + 10px); /* top logo + altezza + respiro */
+  top: calc(10px + 200px + 10px);
   left: 50%;
   transform: translate(-50%, -8px);
   opacity: 0;
@@ -342,13 +329,15 @@ footer {
   gap: 24px;
 }
 
-/* Mostra la barra al passaggio (solo desktop) */
-.hero-header:hover .hero-nav,
-.hero-logo:hover ~ .hero-nav,
-.hero-nav:hover {
-  opacity: 1;
-  transform: translate(-50%, 0);
-  pointer-events: auto;
+/* HOVER SOLO DESKTOP */
+@media (min-width: 821px){
+  .hero-header:hover .hero-nav,
+  .hero-logo:hover ~ .hero-nav,
+  .hero-nav:hover {
+    opacity: 1;
+    transform: translate(-50%, 0);
+    pointer-events: auto;
+  }
 }
 
 /* Link menu hero */
@@ -371,7 +360,7 @@ footer {
   background: rgba(0,0,0,0.32);
 }
 
-/* ----- Stato scrollato (sticky a sinistra) ----- */
+/* Stato scrollato (sticky) desktop */
 body.is-scrolled .hero-logo {
   left: 20px;
   transform: none;
@@ -380,7 +369,6 @@ body.is-scrolled .hero-logo img {
   height: 108px;
 }
 
-/* La barra si allinea accanto al logo, verso sinistra */
 body.is-scrolled .hero-nav {
   left: 0;
   top: 18px;
@@ -388,39 +376,37 @@ body.is-scrolled .hero-nav {
   justify-content: flex-start;
   opacity: 0;
   pointer-events: none;
-  margin-left: 520px;
+  margin-left: calc(20px + 108px + 18px);
 }
 
-/* Desktop: mostra la barra con hover anche in sticky */
-body.is-scrolled .hero-header:hover .hero-nav,
-body.is-scrolled .hero-logo:hover ~ .hero-nav,
-body.is-scrolled .hero-nav:hover {
-  opacity: 1;
-  pointer-events: auto;
+@media (min-width: 821px){
+  body.is-scrolled .hero-header:hover .hero-nav,
+  body.is-scrolled .hero-logo:hover ~ .hero-nav,
+  body.is-scrolled .hero-nav:hover {
+    opacity: 1;
+    pointer-events: auto;
+  }
 }
 
-/* Sicurezza: il logo è sempre cliccabile sopra a tutto */
-.hero-logo{ 
-  pointer-events: auto; 
-  z-index: 10000; 
-}
+/* Sicurezza */
+.hero-logo{ pointer-events: auto; z-index: 10000; }
 
 /* ========= Mobile (≤ 820px) ========= */
 @media (max-width: 820px){
 
-  /* Logo: grande in cima, piccolo in sticky */
+  /* Logo: grande, poi piccolo quando scrolli */
   .hero-logo img{
-    height: 90px !important;
+    height: 90px;
     transition: height .3s ease;
   }
   body.is-scrolled .hero-logo img{
-    height: 55px !important;
+    height: 55px;
   }
 
-  /* Menu mobile: nascosto di default */
+  /* Menu mobile: chiuso di default, sotto al logo */
   .hero-nav{
     position: fixed;
-    top: 90px;                   /* distanza verticale dal logo */
+    top: 90px;                   /* distanza dal top */
     left: 50%;
     transform: translate(-50%, -8px);
     gap: 16px;
@@ -429,7 +415,7 @@ body.is-scrolled .hero-nav:hover {
     transition: opacity .25s ease, transform .25s ease;
   }
 
-  /* Disattiva hover su mobile */
+  /* disattiva qualsiasi hover su mobile */
   .hero-header:hover .hero-nav,
   .hero-logo:hover ~ .hero-nav,
   .hero-nav:hover{
@@ -438,34 +424,28 @@ body.is-scrolled .hero-nav:hover {
     transform: translate(-50%, -8px) !important;
   }
 
-  /* Menu aperto tramite JS */
+  /* Stato aperto: il JS aggiunge .open */
   .hero-nav.open{
     opacity: 1 !important;
     pointer-events: auto !important;
     transform: translate(-50%, 0) !important;
+    margin-left: 20px !important;  /* un filo più a destra rispetto al logo */
   }
 
-  /* Extra: sposta leggermente la barra più a destra per evitare sovrapposizione col logo */
-  .hero-nav.open{
-    margin-left: 20px !important;
-  }
-
-  /* Stato sticky (quando scrolli) */
+  /* Quando scrolli: menu a destra del logo */
   body.is-scrolled .hero-nav{
     top: 14px;
     left: auto;
-    right: 12px;                 /* accanto al logo piccolo */
+    right: 12px;
     transform: translate(0, -8px);
     margin-left: 0 !important;
   }
-
   body.is-scrolled .hero-nav.open{
     opacity: 1 !important;
     pointer-events: auto !important;
     transform: translate(0, 0) !important;
   }
 }
-
 
 /* ====== 4 QUADRI ====== */
 .cards {
@@ -570,6 +550,7 @@ body.is-scrolled .hero-nav:hover {
   transform: translateY(-2px);
 }
 
+
 /* ===== QUADRI FULL SCREEN 2x2 ===== */
 #sezioni.cards-full,
 #sezioni {
@@ -584,7 +565,6 @@ body.is-scrolled .hero-nav:hover {
   gap: 0;
 }
 
-/* ogni riquadro riempie la sua cella */
 #sezioni .card {
   display: block;
   position: relative;
@@ -598,13 +578,11 @@ body.is-scrolled .hero-nav:hover {
   cursor: pointer;
 }
 
-/* sfondo per ciascun riquadro */
 #sezioni .card--storia   { background-image: url('../css/storia.jpg'); }
 #sezioni .card--visione  { background-image: url('../css/visione.jpg'); }
 #sezioni .card--identita { background-image: url('../css/identita.jpg'); }
 #sezioni .card--prodotti { background-image: url('../css/prodotti.jpg'); }
 
-/* velo scuro per leggibilità */
 #sezioni .card::before {
   content: "";
   position: absolute; inset: 0;
@@ -612,7 +590,6 @@ body.is-scrolled .hero-nav:hover {
   pointer-events: none;
 }
 
-/* testo centrato */
 #sezioni .card__overlay {
   position: absolute; inset: 0;
   display: flex; flex-direction: column;
@@ -636,11 +613,9 @@ body.is-scrolled .hero-nav:hover {
   color: #f3f3f3;
 }
 
-/* rimuovi spazi beige sopra/sotto la griglia */
 .hero + #sezioni { margin-top: 0; }
 #sezioni + *     { margin-top: 0; }
 
-/* mobile: una colonna */
 @media (max-width: 880px){
   #sezioni { height: auto; grid-template-columns: 1fr; grid-template-rows: none; }
   #sezioni .card { min-height: 28vh; }
@@ -648,7 +623,6 @@ body.is-scrolled .hero-nav:hover {
   #sezioni .card__overlay p  { font-size: 16px; }
 }
 
-/* Elimina ogni spazio tra la hero e i quadrati */
 .hero {
   margin-bottom: 0 !important;
   padding-bottom: 0 !important;
@@ -672,7 +646,6 @@ body.is-scrolled .hero-nav:hover {
   gap: 12px;
 }
 
-/* Traccia orizzontale nuova */
 .gallery-section .hscroll{
   display: flex;
   gap: 18px;
@@ -683,10 +656,10 @@ body.is-scrolled .hero-nav:hover {
 .gallery-section .hscroll::-webkit-scrollbar{ display:none; }
 .gallery-section .hscroll{ scrollbar-width:none; }
 
-/* Card immagine più grandi */
+/* quadrati galleria più grandi su desktop */
 .g-item{
-  width: 800px;
-  height: 800px;
+  width: 600px;
+  height: 600px;
   object-fit: cover;
   border-radius: 14px;
   flex: 0 0 auto;
@@ -696,7 +669,6 @@ body.is-scrolled .hero-nav:hover {
 }
 .g-item:hover{ transform: translateY(-4px); }
 
-/* Frecce */
 .g-btn{
   width: 44px; height: 44px;
   border-radius: 50%;
@@ -713,7 +685,6 @@ body.is-scrolled .hero-nav:hover {
 .g-prev{ margin-left: 4px; }
 .g-next{ margin-right: 4px; }
 
-/* Lightbox */
 .lightbox{
   position: fixed; inset: 0;
   background: rgba(0,0,0,.7);
@@ -735,12 +706,10 @@ body.is-scrolled .hero-nav:hover {
   color:#fff; font-size: 24px; line-height: 0; cursor: pointer;
 }
 
-/* Mobile piccoli per galleria */
 @media (max-width: 720px){
   .g-item{ width: 220px; height: 220px; }
 }
 
-/* Riduce o elimina lo spazio tra i quadrati e la galleria */
 .cards-section {
   margin-bottom: 0 !important;
   padding-bottom: 0 !important;
@@ -751,7 +720,6 @@ body.is-scrolled .hero-nav:hover {
   padding-top: 0 !important;
 }
 
-/* Elimina ogni spazio tra sezione cards e galleria */
 .cards,
 .cards-section,
 .cards.cards-big,
@@ -763,13 +731,11 @@ body.is-scrolled .hero-nav:hover {
   padding-bottom: 0 !important;
 }
 
-/* Avvicina visivamente le due sezioni */
 section + section {
   margin-top: 0 !important;
   padding-top: 0 !important;
 }
 
-/* Avvicina #sezioni alla galleria */
 #sezioni { 
   margin-bottom: 0 !important;
 }
@@ -787,7 +753,6 @@ section + section {
   margin-top: 8px !important;
 }
 
-/* Beige di fondo ovunque */
 #sezioni, 
 #galleria,
 #contatti,
@@ -806,7 +771,6 @@ footer {
   padding-bottom: 0 !important;
 }
 
-/* singola slide */
 .hero-slider .slide{
   position: absolute;
   inset: 0;
@@ -817,7 +781,6 @@ footer {
 }
 .hero-slider .slide.active{ opacity: 1; }
 
-/* testi centrati sopra le immagini */
 .hero-slider .hero-txt{
   position: absolute;
   left: 50%;
@@ -847,7 +810,6 @@ footer {
   letter-spacing: 0.5px;
 }
 
-/* freccia giù slider */
 .hero-slider .hero-scroll{
   position: absolute;
   left: 50%;
@@ -859,7 +821,6 @@ footer {
   animation: pulse 1.8s ease-in-out infinite;
 }
 
-/* responsive slider */
 @media (max-width: 880px){
   .hero-slider{ min-height: 70vh; }
   .hero-slider .hero-txt h1{ font-size: 40px; }
@@ -871,7 +832,6 @@ footer {
   .hero-slider .hero-sub{ font-size: 16px; }
 }
 
-/* niente spazio tra slider e quadrati */
 section.hero-slider{ 
   margin-bottom: 0 !important; 
   padding-bottom: 0 !important;
@@ -880,11 +840,10 @@ section.hero-slider{
   margin-top: 0 !important;
   padding-top: 0 !important;
 }
-
-/* se c'è una sezione subito dopo la hero/slider, azzera comunque */
 .hero-slider + section,
 .hero + section {
   margin-top: 0 !important;
   padding-top: 0 !important;
 }
+
 
