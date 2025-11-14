@@ -291,17 +291,15 @@ footer {
   pointer-events: auto;
 }
 
-/* LOGO – centrato senza transform */
+/* LOGO centro in alto */
 .hero-logo {
   position: fixed;
   top: 10px;
-  left: 0;
-  width: 100%;
-  display: flex;
-  justify-content: center;      /* centra l’immagine davvero */
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 10000;
-  pointer-events: auto;
   transition: all .35s ease;
+  pointer-events: auto;
 }
 
 .hero-logo img {
@@ -312,19 +310,19 @@ footer {
   transition: all 0.35s ease;
 }
 
-.hero-logo:hover img {
-  transform: scale(1.04);
+.hero-logo:hover img { 
+  transform: scale(1.04); 
 }
 
-/* Stato scrollato: logo a sinistra, come già funzionava bene */
+/* Stato scrollato: logo a sinistra */
 body.is-scrolled .hero-logo {
-  justify-content: flex-start;   /* manda il logo a sinistra */
-  padding-left: 20px;            /* stesso distacco laterale */
+  left: 20px;
+  transform: none;
 }
-
 body.is-scrolled .hero-logo img {
   height: 108px;
 }
+
 
 /* Barra menu: centrata sotto il logo (desktop) */
 .hero-nav {
