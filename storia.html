@@ -11,6 +11,16 @@
 <body>
 
 <style>
+/* Nasconde header, logo e menu SOLO in questa pagina */
+.hero-header,
+.hero-logo,
+.hero-nav {
+  display: none !important;
+}
+</style>
+
+  
+<style>
 .page-bg-logo {
   position: fixed;
   inset: 0;
@@ -158,5 +168,65 @@
     © 2025 RIME – Tutti i diritti riservati
   </footer>
 
+<style>
+.story-footer {
+  margin-top: 80px;
+  padding: 40px 20px;
+  background: rgba(0,0,0,0.08);
+  border-top: 1px solid rgba(255,255,255,0.25);
+  text-align: center;
+}
+
+.story-footer-logo img {
+  height: 90px;
+  margin-bottom: 20px;
+  opacity: 0.9;
+}
+
+.story-footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 10px;
+}
+
+.story-footer-nav a {
+  font-family: "Cormorant Garamond", serif;
+  color: #fff;
+  text-decoration: none;
+  padding: 8px 16px;
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 18px;
+  background: rgba(0,0,0,0.20);
+  transition: 0.25s ease;
+}
+
+.story-footer-nav a:hover {
+  background: rgba(0,0,0,0.32);
+  transform: translateY(-2px);
+}
+</style>
+
+  
+<footer class="story-footer">
+
+  <div class="story-footer-logo">
+    <img src="assets/logo.png" alt="RIME">
+  </div>
+
+  <nav class="story-footer-nav">
+    <a href="index.html#storia">La nostra storia</a>
+    <a href="index.html#visione">Visione</a>
+    <a href="index.html#identita">Identità</a>
+    <a href="index.html#prodotti">Prodotti</a>
+    <a href="index.html#galleria">Galleria</a>
+    <a href="index.html#contatti">Contatti</a>
+  </nav>
+
+</footer>
+
+
+  
 </body>
 </html>
