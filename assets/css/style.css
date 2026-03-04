@@ -643,6 +643,29 @@ body.is-scrolled .hero-nav {
 }
 
 /* ===== GALLERIA – stile nuovo ===== */
+
+#galleria{
+  position: relative;
+  background-image: url("assets/css/travertino.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#galleria::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(12px);
+  background: rgba(255,255,255,0.35);
+  z-index: 0;
+}
+
+#galleria .container{
+  position: relative;
+  z-index: 2;
+}
+
 .gallery-section{
   background: var(--bg);
   padding: 60px 0;
