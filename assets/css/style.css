@@ -642,35 +642,48 @@ body.is-scrolled .hero-nav {
   padding-top: 0 !important;
 }
 
-/* ===== GALLERIA – stile nuovo ===== */
+/* ===== GALLERIA – stile nuovo con sfondo sfocato ===== */
 
+/* Sezione galleria con immagine di sfondo */
 #galleria{
   position: relative;
-  background-image: url("assets/css/travertino.jpeg");
+  overflow: hidden;
+  padding: 60px 0;
+
+  /* ✅ percorso corretto: siamo già in assets/css/ */
+  background-image: url("travertino.jpeg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
 
+/* Velo sfocato sopra l’immagine */
 #galleria::before{
   content: "";
   position: absolute;
   inset: 0;
-  backdrop-filter: blur(12px);
-  background: rgba(255,255,255,0.35);
+
+  /* Sfocatura + velo elegante */
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  background: rgba(255,255,255,0.32);
+
   z-index: 0;
 }
 
+/* Contenuti sopra */
 #galleria .container{
   position: relative;
   z-index: 2;
 }
 
+/* IMPORTANTISSIMO: non mettere un beige pieno sopra alla galleria */
 .gallery-section{
-  background: var(--bg);
-  padding: 60px 0;
+  background: transparent !important;
+  padding: 0 !important;   /* la gestione padding è su #galleria */
 }
 
+/* Layout galleria con frecce */
 .gallery-wrap{
   position: relative;
   display: grid;
@@ -679,6 +692,7 @@ body.is-scrolled .hero-nav {
   gap: 12px;
 }
 
+/* Traccia orizzontale */
 .gallery-section .hscroll{
   display: flex;
   gap: 18px;
@@ -686,19 +700,9 @@ body.is-scrolled .hero-nav {
   scroll-behavior: smooth;
   padding: 12px 4px;
 }
+
 .gallery-section .hscroll::-webkit-scrollbar{ display:none; }
 .gallery-section .hscroll{ scrollbar-width:none; }
-
-/* ====== GALLERIA ORIZZONTALE (desktop) ====== */
-#galleria .hscroll{
-  display: flex;
-  gap: 18px;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  padding: 12px 4px;
-}
-#galleria .hscroll::-webkit-scrollbar{ display:none; }
-#galleria .hscroll{ scrollbar-width:none; }
 
 /* ✅ Forza dimensione quadri galleria */
 #galleria .hscroll img.g-item{
