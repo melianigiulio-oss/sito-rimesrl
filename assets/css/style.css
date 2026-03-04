@@ -668,8 +668,8 @@ body.is-scrolled .hero-nav {
 
 /* quadrati galleria più grandi su desktop */
 .g-item{
-  width: 900px;
-  height: 900px;
+  width: 1500px;
+  height: 1500px;
   object-fit: cover;
   border-radius: 14px;
   flex: 0 0 auto;
