@@ -588,10 +588,10 @@ body.is-scrolled .hero-nav {
   cursor: pointer;
 }
 
-#sezioni .card--storia   { background-image: url('../css/storia.jpg'); }
-#sezioni .card--visione  { background-image: url('../css/visione.jpg'); }
-#sezioni .card--identita { background-image: url('../css/identita.jpg'); }
-#sezioni .card--prodotti { background-image: url('../css/prodotti.jpg'); }
+#sezioni .card--storia   { background-image: url('../css/storia1.jpeg'); }
+#sezioni .card--visione  { background-image: url('../css/visione1.jpeg'); }
+#sezioni .card--identita { background-image: url('../css/identita1.jpeg'); }
+#sezioni .card--prodotti { background-image: url('../css/prodotti1.jpeg'); }
 
 #sezioni .card::before {
   content: "";
