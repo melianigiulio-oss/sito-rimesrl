@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Prodotti – RIME</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <style>
+  .hero-header, .hero-logo, .hero-nav { display: none !important; }
+  .page-bg-logo {
+    position: fixed; inset: 0;
+    background: url("assets/css/logo.jpeg") center/70% no-repeat;
+    opacity: 0.12; z-index: 0; pointer-events:none;
+  }
+  main, .story-footer { position: relative; z-index: 2; }
+
+  .products-hero{ text-align:center; margin-bottom: 26px; }
+  .products-hero h1{ font-size:46px; margin-bottom: 10px; }
+  .products-hero p{ text-align:center; max-width: 900px; margin:0 auto; opacity:.9; }
+
+  .prod-grid{
+    display:grid;
+    grid-template-columns: repeat(2, minmax(280px, 1fr));
+    gap: 22px;
+    margin-top: 34px;
+  }
+  @media (max-width: 900px){ .prod-grid{ grid-template-columns:1fr; } }
+
+  .prod-card{
+    position: relative;
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,.22);
+    background: rgba(0,0,0,.12);
+    backdrop-filter: blur(6px);
+    padding: 26px;
+    transition: transform .25s ease, background .25s ease, border-color .25s ease;
+  }
+  .prod-card:hover{
+    transform: translateY(-4px);
+    background: rgba(0,0,0,.18);
+    border-color: rgba(255,255,255,.35);
+  }
+  .prod-card h3{ font-size: 34px; margin-bottom: 10px; }
+  .prod-card p{ text-align:left; opacity:.92; }
+  .prod-actions{ display:flex; gap:10px; flex-wrap:wrap; margin-top: 14px; }
+
+  .tagline{
+    font-family:"Inter", sans-serif;
+    font-size: 14px;
+    opacity: .85;
+    margin-top: 6px;
+  }
+  </style>
+
+  <div class="page-bg-logo"></div>
+
+  <main class="container">
+
+    <div class="products-hero">
+      <h1>Prodotti</h1>
+      <p>
+        Piccole serie, firma chiara, gusto pulito. RIME seleziona eccellenze artigianali e sviluppa creazioni proprietarie
+        per costruire un’esperienza premium che si sente nel bicchiere e si riconosce nei dettagli.
+      </p>
+    </div>
+
+    <section class="prod-grid">
+
+      <!-- VARÙNA -->
+      <article class="prod-card">
+        <h3>VARÙNA</h3>
+        <div class="tagline">Grappa di Brunello Riserva • 18 mesi in barrique • alta degustazione</div>
+        <p>
+          Vinacce fresche di Sangiovese Grosso (Brunello) distillate entro 48 ore, tagli manuali del Maestro Distillatore,
+          18 mesi in barrique da 225 L. Una riserva elegante e intensa, con un finale nobile e persistente.
+        </p>
+        <div class="prod-actions">
+          <a class="btn" href="varuna.html">Scopri VARÙNA</a>
+          <a class="btn" href="contatti.html">Disponibilità</a>
+        </div>
+      </article>
+
+      <!-- BUTITO -->
+      <article class="prod-card">
+        <h3>Butito</h3>
+        <div class="tagline">Amaro di nuova generazione • affinato in barrique • 25%</div>
+        <p>
+          Spezie esotiche, note balsamiche e sfumature floreali, con un finale elegante leggermente tannico.
+          Versatile: liscio, in cocktail d’autore, o in abbinamento gourmet.
+        </p>
+        <div class="prod-actions">
+          <a class="btn" href="butito.html">Scopri Butito</a>
+          <a class="btn" href="contatti.html">Disponibilità</a>
+        </div>
+      </article>
+
+    </section>
+
+  </main>
+
+  <!-- footer identico -->
+  <style>
+  .story-footer {
+    margin-top: 80px;
+    padding: 40px 20px;
+    background: rgba(0,0,0,0.08);
+    border-top: 1px solid rgba(255,255,255,0.25);
+    text-align: center;
+  }
+  .story-footer-logo img { height: 90px; margin-bottom: 20px; opacity: 0.9; }
+  .story-footer-nav {
+    display: flex; flex-wrap: wrap; justify-content: center;
+    gap: 14px; margin-top: 10px; margin-bottom: 10px;
+  }
+  .story-footer-nav a{
+    font-family: "Cormorant Garamond", serif;
+    color: #fff; text-decoration: none;
+    padding: 8px 16px;
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 18px;
+    background: rgba(0,0,0,0.20);
+    transition: 0.25s ease;
+  }
+  .story-footer-nav a:hover{ background: rgba(0,0,0,0.32); transform: translateY(-2px); }
+  .story-footer-copy{ font-size: 14px; color: rgba(255,255,255,0.7); margin-top: 8px; }
+  </style>
+
+  <footer class="story-footer">
+    <div class="story-footer-logo">
+      <a href="index.html#home">
+        <img src="assets/css/logo-white.png" alt="RIME">
+      </a>
+    </div>
+
+    <nav class="story-footer-nav">
+      <a href="storia.html">La nostra storia</a>
+      <a href="visione.html">Visione</a>
+      <a href="identita.html">Identità</a>
+      <a href="prodotti.html">Prodotti</a>
+      <a href="galleria.html">Galleria</a>
+      <a href="contatti.html">Contatti</a>
+    </nav>
+
+    <div class="story-footer-copy">© 2025 RIME – Tutti i diritti riservati</div>
+  </footer>
+
+</body>
+</html>
