@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Cormorant+Garamond:wght@400;600&display=swap');
 
 :root {
-  --bg: #c6a07a;        /* beige scuro */
+  --bg: #b88f68;        /* beige scuro */
   --text: #ffffff;      /* testo bianco */
   --accent: #bfa77f;    /* oro tenue */
   --max-width: 980px;
@@ -671,7 +671,7 @@ body.is-scrolled .hero-nav {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(255,255,255,0.22);
+  background: rgba(0,0,0,0.22);
   z-index: 1;
 }
 
