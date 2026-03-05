@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Amaro Butito – RIME</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- Nasconde header/menu in alto SOLO in questa pagina -->
+  <style>
+  .hero-header, .hero-logo, .hero-nav { display: none !important; }
+  </style>
+
+  <!-- Sfondo logo come storia/visione/identità -->
+  <style>
+  .page-bg-logo {
+    position: fixed;
+    inset: 0;
+    background: url("assets/css/logo.jpeg") center/70% no-repeat;
+    opacity: 0.12;
+    z-index: 0;
+    pointer-events: none;
+  }
+  main, .story-footer { position: relative; z-index: 2; }
+
+  /* layout premium semplice */
+  .product-hero{
+    padding-top: 10px;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+  .product-hero h1{
+    font-size: 46px;
+    margin-bottom: 10px;
+  }
+  .product-kicker{
+    font-family: "Inter", sans-serif;
+    opacity: .9;
+    max-width: 860px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .product-grid{
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 26px;
+    align-items: start;
+    margin-top: 30px;
+  }
+  @media (max-width: 900px){
+    .product-grid{ grid-template-columns: 1fr; }
+  }
+
+  .panel{
+    background: rgba(0,0,0,0.10);
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 16px;
+    padding: 22px;
+    backdrop-filter: blur(6px);
+  }
+  .panel h3{
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  .list{
+    font-family: "Inter", sans-serif;
+    margin: 0;
+    padding-left: 18px;
+    opacity: .95;
+  }
+  .list li{ margin: 8px 0; }
+
+  .spec{
+    font-family: "Inter", sans-serif;
+    display: grid;
+    gap: 10px;
+    margin-top: 8px;
+  }
+  .spec-row{
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+    padding-bottom: 10px;
+  }
+  .spec-row span:first-child{ opacity: .85; }
+  .spec-row span:last-child{ opacity: .98; text-align: right; }
+
+  .cta-row{
+    display:flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 18px;
+    justify-content: center;
+  }
+  </style>
+
+  <div class="page-bg-logo"></div>
+
+  <main class="container">
+
+    <div class="product-hero">
+      <h1>Amaro Butito</h1>
+      <p class="product-kicker">
+        Un amaro di nuova generazione: spezie, note balsamiche e sfumature floreali,
+        con un finale elegante leggermente tannico grazie all’affinamento in barrique.
+      </p>
+      <div class="cta-row">
+        <a class="btn" href="contatti.html">Richiedi disponibilità</a>
+        <a class="btn" href="prodotti.html">Torna ai prodotti</a>
+      </div>
+    </div>
+
+    <section class="product-grid">
+
+      <!-- Colonna sinistra: racconto + perché -->
+      <div class="panel">
+        <h3>Il concetto</h3>
+        <p>
+          Amaro Butito è un’esperienza sensoriale. Ogni sorso è un viaggio tra spezie esotiche, note balsamiche
+          e sfumature floreali, avvolto da un finale elegante e misurato. La barrique aggiunge profondità e
+          una firma tannica discreta, che rende il profilo più lungo e più “adulto”.
+        </p>
+        <p>
+          La sua versatilità lo rende naturale da gustare liscio, ma anche perfetto in cocktail d’autore
+          o in abbinamento a cioccolato fondente e formaggi stagionati.
+        </p>
+
+        <h3>Perché sceglierlo</h3>
+        <ul class="list">
+          <li><strong>100% artigianale</strong> – lavorazioni tradizionali e ingredienti naturali, senza aromi artificiali.</li>
+          <li><strong>Affinato in barrique</strong> – un passaggio che dona profondità e complessità aromatica.</li>
+          <li><strong>Profilo innovativo</strong> – equilibrato, elegante e versatile, pensato anche per cocktail premium.</li>
+          <li><strong>Packaging esclusivo</strong> – un design raffinato, riconoscibile sugli scaffali e nei migliori locali.</li>
+        </ul>
+      </div>
+
+      <!-- Colonna destra: scheda tecnica + degustazione -->
+      <div class="panel">
+        <h3>Scheda tecnica</h3>
+        <div class="spec">
+          <div class="spec-row"><span>Categoria</span><span>Amaro alle erbe</span></div>
+          <div class="spec-row"><span>Gradazione</span><span>25%</span></div>
+          <div class="spec-row"><span>Metodo</span><span>Infusione a freddo in alcol da grano italiano</span></div>
+          <div class="spec-row"><span>Affinamento</span><span>2 mesi in barrique di rovere francese (225 L)</span></div>
+          <div class="spec-row"><span>Formato</span><span>700 ml</span></div>
+          <div class="spec-row"><span>Conservazione</span><span>Luogo fresco e asciutto, lontano da luce e calore</span></div>
+        </div>
+
+        <h3 style="margin-top:18px;">Botaniche selezionate</h3>
+        <ul class="list">
+          <li>Chiodi di garofano</li>
+          <li>Anice stellato</li>
+          <li>Genziana</li>
+        </ul>
+
+        <h3 style="margin-top:18px;">Note di degustazione</h3>
+        <ul class="list">
+          <li><strong>Colore:</strong> oro intenso con riflessi ambrati</li>
+          <li><strong>Aroma:</strong> chiodi di garofano, balsamico, tocco floreale di ibisco</li>
+          <li><strong>Gusto:</strong> morbido e bilanciato, liquirizia, china, amarezza elegante di genziana</li>
+          <li><strong>Finale:</strong> lungo e sofisticato, spezie dolci e sentore tannico da barrique</li>
+        </ul>
+
+        <h3 style="margin-top:18px;">Servizio & abbinamenti</h3>
+        <ul class="list">
+          <li>Liscio a fine pasto</li>
+          <li>Cocktail d’autore (mixology)</li>
+          <li>Cioccolato fondente e formaggi stagionati</li>
+        </ul>
+      </div>
+
+    </section>
+
+    <section style="margin-top:40px;">
+      <h2>Entra nel mondo Butito</h2>
+      <p>
+        Amaro Butito è ideale per bar premium, ristoranti stellati e negozi specializzati che cercano un prodotto
+        capace di distinguersi per qualità, stile e versatilità. Un amaro che ridefinisce il concetto di tradizione
+        con una voce contemporanea.
+      </p>
+      <div class="cta-row">
+        <a class="btn" href="contatti.html">Contatti</a>
+        <a class="btn" href="https://instagram.com/rime.spirits" target="_blank" rel="noopener">Instagram</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER identico alle altre pagine -->
+  <style>
+  .story-footer {
+    margin-top: 80px;
+    padding: 40px 20px;
+    background: rgba(0,0,0,0.08);
+    border-top: 1px solid rgba(255,255,255,0.25);
+    text-align: center;
+  }
+  .story-footer-logo img { height: 90px; margin-bottom: 20px; opacity: 0.9; }
+  .story-footer-nav {
+    display: flex; flex-wrap: wrap; justify-content: center;
+    gap: 14px; margin-top: 10px; margin-bottom: 10px;
+  }
+  .story-footer-nav a{
+    font-family: "Cormorant Garamond", serif;
+    color: #fff; text-decoration: none;
+    padding: 8px 16px;
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 18px;
+    background: rgba(0,0,0,0.20);
+    transition: 0.25s ease;
+  }
+  .story-footer-nav a:hover{ background: rgba(0,0,0,0.32); transform: translateY(-2px); }
+  .story-footer-copy{ font-size: 14px; color: rgba(255,255,255,0.7); margin-top: 8px; }
+  </style>
+
+  <footer class="story-footer">
+    <div class="story-footer-logo">
+      <a href="index.html#home">
+        <img src="assets/css/logo-white.png" alt="RIME">
+      </a>
+    </div>
+
+    <nav class="story-footer-nav">
+      <a href="storia.html">La nostra storia</a>
+      <a href="visione.html">Visione</a>
+      <a href="identita.html">Identità</a>
+      <a href="prodotti.html">Prodotti</a>
+      <a href="galleria.html">Galleria</a>
+      <a href="contatti.html">Contatti</a>
+    </nav>
+
+    <div class="story-footer-copy">© 2025 RIME – Tutti i diritti riservati</div>
+  </footer>
+
+</body>
+</html>
