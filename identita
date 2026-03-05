@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Identità – RIME</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="assets/css/style.css?v=1">
+</head>
+<body>
+
+  <!-- Nasconde header/menu in alto SOLO in questa pagina (come storia) -->
+  <style>
+    .hero-header, .hero-logo, .hero-nav { display: none !important; }
+  </style>
+
+  <!-- Logo grande di sfondo in trasparenza (stesso concetto di storia) -->
+  <style>
+    .page-bg-logo{
+      position: fixed;
+      inset: 0;
+      background: url("assets/css/logo.jpeg") center/70% no-repeat;
+      opacity: 0.12;
+      z-index: -1;
+      pointer-events: none;
+    }
+  </style>
+  <div class="page-bg-logo"></div>
+
+  <!-- CONTENUTO -->
+  <main class="container">
+
+    <h1>Identità</h1>
+
+    <section>
+      <p>
+        RIME è un progetto di selezione e creazione: individua eccellenze artigianali e le trasforma in prodotti
+        con una firma chiara. Ogni uscita nasce da un criterio semplice e rigoroso: qualità reale, lavorazioni curate,
+        coerenza tra ciò che si beve e ciò che si comunica.
+      </p>
+    </section>
+
+    <section>
+      <p>
+        L’identità di RIME vive in tre gesti: scegliere con attenzione, rispettare i tempi, costruire un’estetica che
+        parli la stessa lingua del contenuto. Per questo i prodotti sono pochi, riconoscibili, pensati per chi cerca
+        carattere, pulizia, eleganza e un piacere che resta.
+      </p>
+    </section>
+
+    <section>
+      <p>
+        RIME è per chi ama bere bene e riconoscere un’intenzione dietro ogni dettaglio: materia prima, affinamento,
+        profilo aromatico, presenza dell’oggetto. Un modo di vivere il gusto con misura, con sensibilità, con memoria.
+      </p>
+    </section>
+
+  </main>
+
+  <!-- FOOTER (come storia) -->
+  <style>
+    .story-footer{
+      margin-top: 80px;
+      padding: 40px 20px;
+      background: rgba(0,0,0,0.08);
+      border-top: 1px solid rgba(255,255,255,0.25);
+      text-align: center;
+    }
+    .story-footer-logo img{
+      height: 90px;
+      margin-bottom: 20px;
+      opacity: 0.9;
+    }
+    .story-footer-nav{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 14px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+    .story-footer-nav a{
+      font-family: "Cormorant Garamond", serif;
+      color: #fff;
+      text-decoration: none;
+      padding: 8px 16px;
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 18px;
+      background: rgba(0,0,0,0.20);
+      transition: 0.25s ease;
+    }
+    .story-footer-nav a:hover{
+      background: rgba(0,0,0,0.32);
+      transform: translateY(-2px);
+    }
+    .story-footer-copy{
+      font-size: 14px;
+      color: rgba(255,255,255,0.7);
+      margin-top: 8px;
+    }
+  </style>
+
+  <footer class="story-footer">
+    <div class="story-footer-logo">
+      <a href="index.html#home">
+        <img src="assets/logo.png" alt="RIME">
+      </a>
+    </div>
+
+    <nav class="story-footer-nav">
+      <a href="storia.html">La nostra storia</a>
+      <a href="visione.html">Visione</a>
+      <a href="identita.html">Identità</a>
+      <a href="prodotti.html">Prodotti</a>
+      <a href="index.html#galleria">Galleria</a>
+      <a href="index.html#contatti">Contatti</a>
+    </nav>
+
+    <div class="story-footer-copy">
+      © 2025 RIME – Tutti i diritti riservati
+    </div>
+  </footer>
+
+</body>
+</html>
