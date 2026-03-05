@@ -641,46 +641,50 @@ body.is-scrolled .hero-nav {
   margin-top: 0 !important;
   padding-top: 0 !important;
 }
+/* ===== GALLERIA – sfondo travertino sfocato (visibile) ===== */
 
-/* ===== GALLERIA – stile nuovo con sfondo sfocato ===== */
-
-/* Sezione galleria con immagine di sfondo */
 #galleria{
   position: relative;
   overflow: hidden;
   padding: 60px 0;
-
-  /* ✅ percorso corretto: siamo già in assets/css/ */
-  background-image: url("travertino.jpeg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
 }
 
-/* Velo sfocato sopra l’immagine */
+/* Immagine di sfondo sfocata */
 #galleria::before{
   content: "";
   position: absolute;
   inset: 0;
 
-  /* Sfocatura + velo elegante */
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  background: rgba(255,255,255,0.32);
+  /* ✅ percorso corretto (travertino.jpeg in assets/css/) */
+  background: url("travertino.jpeg") center/cover no-repeat;
+
+  /* sfocatura reale e compatibile */
+  filter: blur(14px);
+  transform: scale(1.08); /* evita bordi vuoti dopo blur */
+  opacity: 0.95;
 
   z-index: 0;
 }
 
-/* Contenuti sopra */
+/* Velo elegante sopra l’immagine (opzionale ma consigliato) */
+#galleria::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.22);
+  z-index: 1;
+}
+
+/* Contenuti sopra lo sfondo */
 #galleria .container{
   position: relative;
   z-index: 2;
 }
 
-/* IMPORTANTISSIMO: non mettere un beige pieno sopra alla galleria */
+/* Non coprire con background beige */
 .gallery-section{
   background: transparent !important;
-  padding: 0 !important;   /* la gestione padding è su #galleria */
+  padding: 0 !important; /* il padding sta su #galleria */
 }
 
 /* Layout galleria con frecce */
@@ -700,7 +704,6 @@ body.is-scrolled .hero-nav {
   scroll-behavior: smooth;
   padding: 12px 4px;
 }
-
 .gallery-section .hscroll::-webkit-scrollbar{ display:none; }
 .gallery-section .hscroll{ scrollbar-width:none; }
 
