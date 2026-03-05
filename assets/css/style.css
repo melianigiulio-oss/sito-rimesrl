@@ -659,7 +659,7 @@ body.is-scrolled .hero-nav {
   background: url("travertino.jpeg") center/cover no-repeat;
 
   /* sfocatura reale e compatibile */
-  filter: blur(9px);
+  filter: blur(5px);
   transform: scale(1.08); /* evita bordi vuoti dopo blur */
   opacity: 0.95;
 
