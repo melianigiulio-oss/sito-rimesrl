@@ -705,7 +705,7 @@ body.is-scrolled .hero-nav {
 .gallery-section .hscroll{ scrollbar-width:none; }
 
 /* ✅ Forza dimensione quadri galleria */
-#galleria .hscroll img.g-item{
+#galleria .hscroll img{
   width: 380px !important;
   height: 380px !important;
   object-fit: cover !important;
