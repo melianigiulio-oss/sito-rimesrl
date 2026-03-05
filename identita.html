@@ -4,105 +4,129 @@
   <meta charset="UTF-8">
   <title>Identità – RIME</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="assets/css/style.css?v=1">
+  <!-- collega il tuo CSS principale -->
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
-  <!-- Nasconde header/menu in alto SOLO in questa pagina (come storia) -->
+  <!-- Nasconde eventuale header globale SOLO in questa pagina -->
   <style>
-    .hero-header, .hero-logo, .hero-nav { display: none !important; }
+  .hero-header,
+  .hero-logo,
+  .hero-nav {
+    display: none !important;
+  }
   </style>
 
-  <!-- Logo grande di sfondo in trasparenza (stesso concetto di storia) -->
+  <!-- Logo grande di sfondo in trasparenza (UGUALE a storia.html) -->
   <style>
-    .page-bg-logo{
-      position: fixed;
-      inset: 0;
-      background: url("assets/css/logo.jpeg") center/70% no-repeat;
-      opacity: 0.12;
-      z-index: -1;
-      pointer-events: none;
-    }
+  .page-bg-logo {
+    position: fixed;
+    inset: 0;
+    background: url("assets/css/logo.jpeg") center/70% no-repeat;
+    opacity: 0.12;
+    z-index: 0;            /* NON negativo */
+    pointer-events: none;
+  }
+
+  /* Tutto il contenuto sopra allo sfondo */
+  main, .story-footer {
+    position: relative;
+    z-index: 2;
+  }
   </style>
+
   <div class="page-bg-logo"></div>
 
-  <!-- CONTENUTO -->
+  <!-- CONTENUTO PRINCIPALE -->
   <main class="container">
 
-    <h1>Identità</h1>
+    <section id="identita">
+      <h2>Identità</h2>
 
-    <section>
       <p>
-        RIME è un progetto di selezione e creazione: individua eccellenze artigianali e le trasforma in prodotti
-        con una firma chiara. Ogni uscita nasce da un criterio semplice e rigoroso: qualità reale, lavorazioni curate,
-        coerenza tra ciò che si beve e ciò che si comunica.
+        RIME è un progetto che unisce selezione e creazione. Da una parte ricerca produttori capaci di lavorare con
+        precisione e sensibilità; dall’altra sviluppa ricette proprietarie, dando vita a prodotti che portano una firma
+        riconoscibile. In entrambi i casi il punto è lo stesso: costruire un’esperienza premium che si senta nel bicchiere
+        e si percepisca in ogni dettaglio.
       </p>
-    </section>
 
-    <section>
       <p>
-        L’identità di RIME vive in tre gesti: scegliere con attenzione, rispettare i tempi, costruire un’estetica che
-        parli la stessa lingua del contenuto. Per questo i prodotti sono pochi, riconoscibili, pensati per chi cerca
-        carattere, pulizia, eleganza e un piacere che resta.
+        L’identità di RIME si fonda su un’idea di qualità concreta, verificabile. Materie prime curate, lavorazioni pulite,
+        tempi rispettati, profili aromatici chiari. Il gusto è pensato per essere nitido ed elegante: non serve stupire con
+        eccessi, serve lasciare una traccia precisa, piacevole, memorabile. Ogni uscita viene progettata per avere equilibrio,
+        coerenza e una personalità netta.
       </p>
-    </section>
 
-    <section>
       <p>
-        RIME è per chi ama bere bene e riconoscere un’intenzione dietro ogni dettaglio: materia prima, affinamento,
-        profilo aromatico, presenza dell’oggetto. Un modo di vivere il gusto con misura, con sensibilità, con memoria.
+        RIME parla anche di cultura del bere. Significa conoscere quello che si sta bevendo, riconoscere la mano che c’è dietro,
+        capire perché un prodotto è fatto in un certo modo. Significa scegliere con consapevolezza, dare valore al momento,
+        condividere un oggetto e una storia che hanno senso. Per questo la comunicazione e l’estetica non sono un rivestimento:
+        sono parte dell’identità, perché raccontano la stessa cura che entra nella ricetta e nella selezione.
+      </p>
+
+      <p>
+        La gamma di RIME cresce nel tempo seguendo la stessa linea: pochi prodotti alla volta, ciascuno con una direzione chiara.
+        Ogni nuova uscita amplia il mondo RIME senza disperderlo, mantenendo intatti i criteri di partenza: gusto pulito, esperienza,
+        bellezza essenziale, rispetto per il lavoro artigianale.
       </p>
     </section>
 
   </main>
 
-  <!-- FOOTER (come storia) -->
+  <!-- FOOTER con logo + menu in basso (UGUALE a storia.html) -->
   <style>
-    .story-footer{
-      margin-top: 80px;
-      padding: 40px 20px;
-      background: rgba(0,0,0,0.08);
-      border-top: 1px solid rgba(255,255,255,0.25);
-      text-align: center;
-    }
-    .story-footer-logo img{
-      height: 90px;
-      margin-bottom: 20px;
-      opacity: 0.9;
-    }
-    .story-footer-nav{
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 14px;
-      margin-top: 10px;
-      margin-bottom: 10px;
-    }
-    .story-footer-nav a{
-      font-family: "Cormorant Garamond", serif;
-      color: #fff;
-      text-decoration: none;
-      padding: 8px 16px;
-      border: 1px solid rgba(255,255,255,0.25);
-      border-radius: 18px;
-      background: rgba(0,0,0,0.20);
-      transition: 0.25s ease;
-    }
-    .story-footer-nav a:hover{
-      background: rgba(0,0,0,0.32);
-      transform: translateY(-2px);
-    }
-    .story-footer-copy{
-      font-size: 14px;
-      color: rgba(255,255,255,0.7);
-      margin-top: 8px;
-    }
+  .story-footer {
+    margin-top: 80px;
+    padding: 40px 20px;
+    background: rgba(0,0,0,0.08);
+    border-top: 1px solid rgba(255,255,255,0.25);
+    text-align: center;
+  }
+
+  .story-footer-logo img {
+    height: 90px;
+    margin-bottom: 20px;
+    opacity: 0.9;
+  }
+
+  .story-footer-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .story-footer-nav a {
+    font-family: "Cormorant Garamond", serif;
+    color: #fff;
+    text-decoration: none;
+    padding: 8px 16px;
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 18px;
+    background: rgba(0,0,0,0.20);
+    transition: 0.25s ease;
+  }
+
+  .story-footer-nav a:hover {
+    background: rgba(0,0,0,0.32);
+    transform: translateY(-2px);
+  }
+
+  .story-footer-copy {
+    font-size: 14px;
+    color: rgba(255,255,255,0.7);
+    margin-top: 8px;
+  }
   </style>
 
   <footer class="story-footer">
+
     <div class="story-footer-logo">
       <a href="index.html#home">
-        <img src="assets/logo.png" alt="RIME">
+        <img src="assets/css/logo-white.png" alt="RIME">
       </a>
     </div>
 
@@ -111,13 +135,14 @@
       <a href="visione.html">Visione</a>
       <a href="identita.html">Identità</a>
       <a href="prodotti.html">Prodotti</a>
-      <a href="index.html#galleria">Galleria</a>
-      <a href="index.html#contatti">Contatti</a>
+      <a href="galleria.html">Galleria</a>
+      <a href="contatti.html">Contatti</a>
     </nav>
 
     <div class="story-footer-copy">
       © 2025 RIME – Tutti i diritti riservati
     </div>
+
   </footer>
 
 </body>
