@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Visione – RIME</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- collega il tuo CSS principale -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- Nasconde eventuale header globale SOLO in questa pagina -->
+  <style>
+  .hero-header,
+  .hero-logo,
+  .hero-nav {
+    display: none !important;
+  }
+  </style>
+
+  <!-- Logo grande di sfondo in trasparenza (UGUALE a storia.html) -->
+  <style>
+  .page-bg-logo {
+    position: fixed;
+    inset: 0;
+    background: url("assets/css/logo.jpeg") center/70% no-repeat;
+    opacity: 0.12;
+    z-index: 0;            /* NON negativo */
+    pointer-events: none;
+  }
+
+  /* Tutto il contenuto sopra allo sfondo */
+  main, .story-footer {
+    position: relative;
+    z-index: 2;
+  }
+  </style>
+
+  <div class="page-bg-logo"></div>
+
+  <!-- CONTENUTO PRINCIPALE -->
+  <main class="container">
+
+    <section id="visione">
+      <h2>Visione</h2>
+
+      <p>
+        La visione di RIME è costruire una cultura del bere più adulta e più bella: un modo di scegliere che dà valore al tempo,
+        alla qualità e alle persone. Un bere che diventa esperienza, presenza, memoria. Un gesto che accompagna un momento importante,
+        una tavola, una conversazione, senza bisogno di rumore.
+      </p>
+
+      <p>
+        RIME vuole diventare un riferimento premium per chi cerca prodotti con una firma chiara e un gusto pulito, capaci di raccontare
+        un’idea di artigianalità contemporanea. La visione è far crescere una gamma coerente, fatta di uscite pensate, essenziali,
+        riconoscibili: ricette proprietarie e selezioni che parlano la stessa lingua, anche quando cambiano le materie, gli affinamenti,
+        i profili.
+      </p>
+
+      <p>
+        Nel tempo, RIME immagina un percorso fatto di ricerca continua e di relazioni solide con chi produce bene. Ogni nuovo prodotto deve
+        aggiungere qualcosa, aprire una sfumatura, allargare l’orizzonte senza perdere identità. Crescere, per RIME, significa aumentare il
+        valore, non la quantità.
+      </p>
+
+      <p>
+        Alla fine, la visione è semplice: creare oggetti da bere e da tenere a mente. Prodotti che al primo sorso risultano chiari, e col
+        tempo diventano familiari. Un invito discreto a bere meglio, con più consapevolezza e più cura.
+      </p>
+    </section>
+
+  </main>
+
+  <!-- FOOTER con logo + menu in basso (UGUALE a storia.html) -->
+  <style>
+  .story-footer {
+    margin-top: 80px;
+    padding: 40px 20px;
+    background: rgba(0,0,0,0.08);
+    border-top: 1px solid rgba(255,255,255,0.25);
+    text-align: center;
+  }
+
+  .story-footer-logo img {
+    height: 90px;
+    margin-bottom: 20px;
+    opacity: 0.9;
+  }
+
+  .story-footer-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .story-footer-nav a {
+    font-family: "Cormorant Garamond", serif;
+    color: #fff;
+    text-decoration: none;
+    padding: 8px 16px;
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 18px;
+    background: rgba(0,0,0,0.20);
+    transition: 0.25s ease;
+  }
+
+  .story-footer-nav a:hover {
+    background: rgba(0,0,0,0.32);
+    transform: translateY(-2px);
+  }
+
+  .story-footer-copy {
+    font-size: 14px;
+    color: rgba(255,255,255,0.7);
+    margin-top: 8px;
+  }
+  </style>
+
+  <footer class="story-footer">
+
+    <div class="story-footer-logo">
+      <a href="index.html#home">
+        <img src="assets/css/logo-white.png" alt="RIME">
+      </a>
+    </div>
+
+    <nav class="story-footer-nav">
+      <a href="storia.html">La nostra storia</a>
+      <a href="visione.html">Visione</a>
+      <a href="identita.html">Identità</a>
+      <a href="prodotti.html">Prodotti</a>
+      <a href="galleria.html">Galleria</a>
+      <a href="contatti.html">Contatti</a>
+    </nav>
+
+    <div class="story-footer-copy">
+      © 2025 RIME – Tutti i diritti riservati
+    </div>
+
+  </footer>
+
+</body>
+</html>
